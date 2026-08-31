@@ -376,7 +376,7 @@ export const IndustrialFooter: React.FC<IndustrialFooterProps> = ({
               </li>
               <li className="pt-1">
                 <a
-                  href="https://www.linkedin.com/company/chemorozruch/"
+                  href="https://www.linkedin.com/company/chemorozruch-sp-z-o-o-/home/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-1.5 text-slate-800 font-bold hover:text-red-600 transition-colors"
