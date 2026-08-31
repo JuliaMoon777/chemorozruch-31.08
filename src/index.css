@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    min-height: 100svh;
+  }
+  input, textarea, select, button {
+    touch-action: manipulation;
+  }
+  /* Prevent iOS zoom on input focus while maintaining pristine typography */
+  @media screen and (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      font-size: 16px !important;
+    }
+  }
+}
+
+/* Safe area support utilities */
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.pl-safe {
+  padding-left: env(safe-area-inset-left, 0px);
+}
+.pr-safe {
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-flight-camera,
+  .animate-cloud-drift-1,
+  .animate-cloud-drift-2,
+  .animate-cloud-drift-3,
+  .animate-cloud-pass-fg,
+  .animate-cloud-pass-mid {
+    animation: none !important;
+  }
+}
+
+.blurslider-gradient {
+  background: linear-gradient(135deg, #ff557c 0%, #f3823c 100%) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+.blurslider-gradient-alt {
+  background: linear-gradient(135deg, #ff2399 0%, #5c24ff 50%, #24ffe9 100%) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+.blurslider-gradient-gold {
+  background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #ff557c 0%, #f3823c 100%);
+  box-shadow: 0px 12px 28px -4px rgba(243, 130, 60, 0.45), 0px 8px 16px -2px rgba(255, 85, 124, 0.35);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #f3823c 0%, #ff557c 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0px 18px 36px -4px rgba(243, 130, 60, 0.55), 0px 10px 22px -2px rgba(255, 85, 124, 0.45);
+}
+
+.glowborder {
+  position: relative;
+}
+
+.glowborder::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(90deg, #fd6e44, #ff2399, #5c24ff, #3951ff, #24ffe9, #5c24ff, #ff2399, #fd6e44);
+  background-size: 300%;
+  border-radius: 9999px;
+  z-index: -1;
+  animation: glowanim 8s linear infinite;
+  opacity: 0.7;
+  filter: blur(8px);
+  transition: opacity 0.3s ease;
+}
+
+.glowborder:hover::before {
+  opacity: 1;
+  filter: blur(12px);
+}
+
+@keyframes glowanim {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes flightCamera {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.045) translate3d(-10px, -8px, 0);
+  }
+  100% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes cloudDrift1 {
+  0% {
+    transform: translate3d(-4%, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6%, -2%, 0) scale(1.03);
+  }
+  100% {
+    transform: translate3d(-4%, 0, 0) scale(1);
+  }
+}
+
+@keyframes cloudDrift2 {
+  0% {
+    transform: translate3d(5%, 0, 0) scale(1.02);
+  }
+  50% {
+    transform: translate3d(-7%, 3%, 0) scale(0.98);
+  }
+  100% {
+    transform: translate3d(5%, 0, 0) scale(1.02);
+  }
+}
+
+@keyframes cloudDrift3 {
+  0% {
+    transform: translate3d(-8%, 2%, 0) scale(0.97);
+  }
+  50% {
+    transform: translate3d(8%, -3%, 0) scale(1.04);
+  }
+  100% {
+    transform: translate3d(-8%, 2%, 0) scale(0.97);
+  }
+}
+
+@keyframes cloudPassForeground {
+  0% {
+    transform: translate3d(-15%, -8%, 0) scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(25%, 12%, 0) scale(1.15);
+    opacity: 0.85;
+  }
+}
+
+@keyframes cloudPassMid {
+  0% {
+    transform: translate3d(20%, -4%, 0);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.92;
+  }
+  100% {
+    transform: translate3d(-25%, 8%, 0);
+    opacity: 0.8;
+  }
+}
+
+.animate-flight-camera {
+  animation: flightCamera 24s ease-in-out infinite;
+}
+
+.animate-cloud-drift-1 {
+  animation: cloudDrift1 26s ease-in-out infinite;
+}
+
+.animate-cloud-drift-2 {
+  animation: cloudDrift2 34s ease-in-out infinite;
+}
+
+.animate-cloud-drift-3 {
+  animation: cloudDrift3 42s ease-in-out infinite;
+}
+
+.animate-cloud-pass-fg {
+  animation: cloudPassForeground 48s ease-in-out infinite alternate;
+}
+
+.animate-cloud-pass-mid {
+  animation: cloudPassMid 58s ease-in-out infinite alternate;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}

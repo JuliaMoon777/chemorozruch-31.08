@@ -1,0 +1,181 @@
+import fs from 'fs';
+import path from 'path';
+import sharp from 'sharp';
+
+// Exact brand red from the official CHEMOROZRUCH brand identity
+const BRAND_RED = '#E31E24';
+
+// 1. High-precision vector geometry for the emblem (Unclipped, perfectly balanced)
+// viewBox="0 0 600 600"
+const EMBLEM_SVG = `
+  <g id="chemorozruch-emblem" fill="${BRAND_RED}">
+    <!-- Complete, Unclipped Outer C-ring with exact geometric arcs and 45-deg top opening -->
+    <path d="M 440 100
+             A 250 250 0 1 0 300 550
+             L 300 480
+             A 180 180 0 1 1 390 150
+             Z" />
+             
+    <!-- Inner Interlocked H and R Geometry -->
+    <!-- Left vertical bar of H -->
+    <rect x="150" y="170" width="65" height="260" rx="4" />
+    
+    <!-- Crossbar connecting H and R -->
+    <rect x="215" y="268" width="90" height="65" />
+    
+    <!-- Vertical stem of R (top to bottom extending past H) -->
+    <rect x="305" y="170" width="65" height="350" rx="4" />
+    
+    <!-- Loop of R (top right block with outer rounded corners and square inner hole) -->
+    <path d="M 370 170
+             L 485 170
+             C 515 170 535 190 535 220
+             L 535 275
+             C 535 305 515 325 485 325
+             L 370 325
+             Z
+             M 435 225
+             L 475 225
+             C 482 225 485 228 485 235
+             L 485 260
+             C 485 267 482 270 475 270
+             L 435 270
+             Z" fill-rule="evenodd" />
+             
+    <!-- Diagonal right leg of R extending down-right -->
+    <path d="M 370 325
+             L 445 325
+             L 515 470
+             L 445 470
+             Z" />
+  </g>
+`;
+
+// 2. High-precision vector typography for "CHEMOROZRUCH"
+// viewBox origin is baseline centered around y=0
+const WORDMARK_SVG = `
+  <g id="chemorozruch-wordmark" fill="${BRAND_RED}">
+    <!-- C (1) -->
+    <path d="M 95 72 C 48 72 12 38 12 -12 C 12 -62 48 -96 95 -96 C 132 -96 156 -72 164 -40 L 126 -30 C 120 -50 108 -62 95 -62 C 68 -62 48 -40 48 -12 C 48 16 68 38 95 38 C 108 38 120 26 126 6 L 164 16 C 156 48 132 72 95 72 Z" />
+
+    <!-- H (2) -->
+    <path d="M 190 -92 L 226 -92 L 226 -32 L 292 -32 L 292 -92 L 328 -92 L 328 68 L 292 68 L 292 -2 L 226 -2 L 226 68 L 190 68 Z" />
+
+    <!-- E (3) -->
+    <path d="M 354 -92 L 444 -92 L 444 -60 L 390 -60 L 390 -28 L 438 -28 L 438 4 L 390 4 L 390 36 L 446 36 L 446 68 L 354 68 Z" />
+
+    <!-- M (4) -->
+    <path d="M 470 -92 L 512 -92 L 546 2 L 580 -92 L 622 -92 L 622 68 L 588 68 L 588 -34 L 558 42 L 534 42 L 504 -34 L 504 68 L 470 68 Z" />
+
+    <!-- O (5) -->
+    <path d="M 698 72 C 652 72 620 38 620 -12 C 620 -62 652 -96 698 -96 C 744 -96 776 -62 776 -12 C 776 38 744 72 698 72 Z M 698 38 C 724 38 740 16 740 -12 C 740 -40 724 -62 698 -62 C 672 -62 656 -40 656 -12 C 656 16 672 38 698 38 Z" />
+
+    <!-- R (6) -->
+    <path d="M 800 -92 L 866 -92 C 902 -92 926 -72 926 -40 C 926 -14 912 4 886 10 L 930 68 L 890 68 L 852 6 L 836 6 L 836 68 L 800 68 Z M 836 -62 L 836 -20 L 862 -20 C 878 -20 888 -28 888 -41 C 888 -54 878 -62 862 -62 Z" />
+
+    <!-- O (7) -->
+    <path d="M 1006 72 C 960 72 928 38 928 -12 C 928 -62 960 -96 1006 -96 C 1052 -96 1084 -62 1084 -12 C 1084 38 1052 72 1006 72 Z M 1006 38 C 1032 38 1048 16 1048 -12 C 1048 -40 1032 -62 1006 -62 C 980 -62 964 -40 964 -12 C 964 16 980 38 1006 38 Z" />
+
+    <!-- Z (8) -->
+    <path d="M 1108 -92 L 1194 -92 L 1194 -60 L 1148 36 L 1198 36 L 1198 68 L 1106 68 L 1106 36 L 1152 -60 L 1108 -60 Z" />
+
+    <!-- R (9) -->
+    <path d="M 1218 -92 L 1284 -92 C 1320 -92 1344 -72 1344 -40 C 1344 -14 1330 4 1304 10 L 1348 68 L 1308 68 L 1270 6 L 1254 6 L 1254 68 L 1218 68 Z M 1254 -62 L 1254 -20 L 1280 -20 C 1296 -20 1306 -28 1306 -41 C 1306 -54 1296 -62 1280 -62 Z" />
+
+    <!-- U (10) -->
+    <path d="M 1368 -92 L 1404 -92 L 1404 12 C 1404 34 1418 44 1440 44 C 1462 44 1476 34 1476 12 L 1476 -92 L 1512 -92 L 1512 12 C 1512 52 1484 72 1440 72 C 1396 72 1368 52 1368 12 Z" />
+
+    <!-- C (11) -->
+    <path d="M 1588 72 C 1541 72 1505 38 1505 -12 C 1505 -62 1541 -96 1588 -96 C 1625 -96 1649 -72 1657 -40 L 1619 -30 C 1613 -50 1601 -62 1588 -62 C 1561 -62 1541 -40 1541 -12 C 1541 16 1561 38 1588 38 C 1601 38 1613 26 1619 6 L 1657 16 C 1649 48 1625 72 1588 72 Z" />
+
+    <!-- H (12) -->
+    <path d="M 1684 -92 L 1720 -92 L 1720 -32 L 1786 -32 L 1786 -92 L 1822 -92 L 1822 68 L 1786 68 L 1786 -2 L 1720 -2 L 1720 68 L 1684 68 Z" />
+  </g>
+`;
+
+// 3. Full Horizontal Logo (viewBox 0 0 2600 640) - Generous vertical & horizontal padding
+const FULL_HORIZONTAL_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2600 640" width="2600" height="640" fill="none">
+  <!-- Official CHEMOROZRUCH Horizontal Logo with Full Unclipped Emblem and Ample Breathing Padding -->
+  <g transform="translate(30, 20) scale(1.0)">
+    ${EMBLEM_SVG}
+  </g>
+  <g transform="translate(680, 320) scale(1.02)">
+    ${WORDMARK_SVG}
+  </g>
+</svg>`;
+
+// 4. Emblem only (viewBox 0 0 640 640)
+const EMBLEM_ONLY_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="640" height="640" fill="none">
+  <g transform="translate(20, 20)">
+    ${EMBLEM_SVG}
+  </g>
+</svg>`;
+
+// 5. Stacked Logo (viewBox 0 0 1900 1200)
+const FULL_STACKED_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1900 1200" width="1900" height="1200" fill="none">
+  <g transform="translate(650, 40) scale(1.0)">
+    ${EMBLEM_SVG}
+  </g>
+  <g transform="translate(40, 980) scale(1.0)">
+    ${WORDMARK_SVG}
+  </g>
+</svg>`;
+
+async function run() {
+  const publicImagesDir = path.resolve(process.cwd(), 'public/images');
+  const srcAssetsDir = path.resolve(process.cwd(), 'src/assets');
+
+  if (!fs.existsSync(publicImagesDir)) {
+    fs.mkdirSync(publicImagesDir, { recursive: true });
+  }
+  if (!fs.existsSync(srcAssetsDir)) {
+    fs.mkdirSync(srcAssetsDir, { recursive: true });
+  }
+
+  // 1. Write SVG files (Vector perfection, never clipped, infinite resolution)
+  fs.writeFileSync(path.join(publicImagesDir, 'chemorozruch-logo-horizontal.svg'), FULL_HORIZONTAL_SVG.trim(), 'utf8');
+  fs.writeFileSync(path.join(publicImagesDir, 'chemorozruch-logo-mark.svg'), EMBLEM_ONLY_SVG.trim(), 'utf8');
+  fs.writeFileSync(path.join(publicImagesDir, 'chemorozruch-logo-official.svg'), FULL_STACKED_SVG.trim(), 'utf8');
+
+  // Copy SVGs to src/assets
+  fs.writeFileSync(path.join(srcAssetsDir, 'chemorozruch-logo-horizontal.svg'), FULL_HORIZONTAL_SVG.trim(), 'utf8');
+  fs.writeFileSync(path.join(srcAssetsDir, 'chemorozruch-logo-mark.svg'), EMBLEM_ONLY_SVG.trim(), 'utf8');
+  fs.writeFileSync(path.join(srcAssetsDir, 'chemorozruch-logo-official.svg'), FULL_STACKED_SVG.trim(), 'utf8');
+
+  console.log('✓ SVGs written successfully');
+
+  // 2. Render razor-sharp PNG & WebP files with Sharp
+  // Horizontal Logo PNG & WebP
+  await sharp(Buffer.from(FULL_HORIZONTAL_SVG))
+    .png({ compressionLevel: 9 })
+    .toFile(path.join(publicImagesDir, 'chemorozruch-logo-horizontal.png'));
+
+  await sharp(Buffer.from(FULL_HORIZONTAL_SVG))
+    .webp({ lossless: true, quality: 100 })
+    .toFile(path.join(publicImagesDir, 'chemorozruch-logo-horizontal.webp'));
+
+  // Emblem PNG & WebP
+  await sharp(Buffer.from(EMBLEM_ONLY_SVG))
+    .png({ compressionLevel: 9 })
+    .toFile(path.join(publicImagesDir, 'chemorozruch-logo-mark.png'));
+
+  await sharp(Buffer.from(EMBLEM_ONLY_SVG))
+    .webp({ lossless: true, quality: 100 })
+    .toFile(path.join(publicImagesDir, 'chemorozruch-logo-mark.webp'));
+
+  // Stacked Logo PNG & WebP
+  await sharp(Buffer.from(FULL_STACKED_SVG))
+    .png({ compressionLevel: 9 })
+    .toFile(path.join(publicImagesDir, 'chemorozruch-logo-official.png'));
+
+  await sharp(Buffer.from(FULL_STACKED_SVG))
+    .webp({ lossless: true, quality: 100 })
+    .toFile(path.join(publicImagesDir, 'chemorozruch-logo-official.webp'));
+
+  console.log('✓ High-resolution PNG & WebP files generated successfully!');
+}
+
+run().catch((err) => {
+  console.error('Error generating logo assets:', err);
+  process.exit(1);
+});
