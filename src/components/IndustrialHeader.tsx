@@ -86,49 +86,71 @@ export const IndustrialHeader: React.FC<IndustrialHeaderProps> = ({
     <>
       <header
         id="main-industrial-header"
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 pt-safe ${
-          scrolled || mobileMenuOpen
-            ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] py-2.5 sm:py-3'
-            : 'bg-gradient-to-b from-white/95 via-white/80 to-transparent py-3 sm:py-4 lg:py-5'
+        className={`fixed top-0 left-0 right-0 z-40 bg-white transition-all duration-300 pt-safe ${
+          scrolled
+            ? 'py-2 sm:py-2.5 border-b border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.06)]'
+            : 'py-2.5 sm:py-3.5 lg:py-4 border-b border-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-10 flex items-center justify-between gap-2 sm:gap-4">
-          {/* Left: Official Brand Logo with Localized Homepage Link */}
+        {/* ========================================================
+            NATURAL DISSOLVE EXTENSION INTO HERO (UNSCROLLED)
+            - Pinned beneath the solid white header bar (top-full)
+            - Smoothly fades opacity to 0 on scroll with zero background flash
+            - The main header above is ALWAYS 100% pure solid white (#FFFFFF)
+        ======================================================== */}
+        <div
+          aria-hidden="true"
+          className={`absolute inset-x-0 top-full pointer-events-none transition-opacity duration-300 ${
+            scrolled || mobileMenuOpen ? 'opacity-0' : 'opacity-100'
+          }`}
+          style={{
+            height: '48px',
+            background:
+              'linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.95) 20%, rgba(255,255,255,0.70) 50%, rgba(255,255,255,0.30) 80%, rgba(255,255,255,0) 100%)',
+          }}
+        />
+
+        <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 xl:px-10 flex items-center justify-between gap-2 sm:gap-4">
+          {/* Left: Official Brand Logo — enlarged 30-50% larger, locked into pure white background with zero flash */}
           <a
             id="header-brand"
             href={buildLocalizedPath(undefined, currentLang)}
-            className="flex items-center cursor-pointer group select-none flex-shrink-0 focus:outline-hidden transition-transform duration-200 hover:opacity-95"
+            className="flex items-center cursor-pointer group select-none flex-shrink-0 focus:outline-hidden hover:opacity-95"
             aria-label="CHEMOROZRUCH - Strona główna"
             onClick={(e) => {
               // If on homepage, smooth scroll to top without full page reload
-              if (window.location.pathname === '/' || window.location.pathname === `/${currentLang.toLowerCase()}/` || window.location.pathname === '/uk/') {
+              if (
+                window.location.pathname === '/' ||
+                window.location.pathname === `/${currentLang.toLowerCase()}/` ||
+                window.location.pathname === '/uk/'
+              ) {
                 e.preventDefault();
                 setMobileMenuOpen(false);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }
             }}
           >
-            <div className="h-7 xs:h-8 sm:h-8.5 md:h-9 lg:h-9.5 xl:h-10 w-auto flex items-center justify-start max-w-[155px] xs:max-w-[185px] sm:max-w-[220px] md:max-w-[260px] lg:max-w-[290px]">
+            <div className="h-[52px] xs:h-[58px] sm:h-[66px] md:h-[76px] lg:h-[84px] xl:h-[92px] w-auto flex items-center justify-start">
               <ChemorozruchLogo
                 variant="horizontal"
-                className="h-full w-auto max-h-full object-contain"
+                className="h-full w-auto max-h-full object-contain select-none pointer-events-none"
                 alt="CHEMOROZRUCH"
                 priority={true}
               />
             </div>
           </a>
 
-          {/* Center: Desktop Navigation Bar (Visible on 1024px+) */}
+          {/* Center: Desktop Navigation Bar (Visible on 1024px+) — on clean white header surface */}
           <nav
             aria-label="Główna nawigacja"
-            className="hidden lg:flex items-center gap-1 xl:gap-1.5 px-3 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-2xs"
+            className="hidden lg:flex items-center gap-1 xl:gap-1.5"
           >
             {navItems.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
                 onClick={(e) => handleNavClick(e, item.id)}
-                className="px-3 py-1.5 text-xs font-semibold text-slate-700 hover:text-red-600 hover:bg-slate-100/80 rounded-full transition-all duration-150 whitespace-nowrap"
+                className="px-3.5 py-1.5 text-[13px] xl:text-sm font-semibold text-slate-800 hover:text-red-600 hover:bg-slate-100/70 rounded-full transition-colors duration-150 whitespace-nowrap"
               >
                 {item.label[currentLang]}
               </a>
@@ -136,12 +158,12 @@ export const IndustrialHeader: React.FC<IndustrialHeaderProps> = ({
           </nav>
 
           {/* Right: Actions Container (Desktop, Tablet, Mobile) */}
-          <div id="header-right-actions" className="flex items-center gap-1.5 sm:gap-3 lg:gap-5 flex-shrink-0">
+          <div id="header-right-actions" className="flex items-center gap-1.5 sm:gap-3 lg:gap-4 flex-shrink-0">
             {/* Desktop Language Switcher (1024px+) */}
             <nav
               id="header-language-desktop"
               aria-label="Wybór języka"
-              className="hidden lg:flex items-center gap-0.5 text-xs font-semibold text-slate-600 bg-slate-100/80 p-0.5 rounded-full border border-slate-200/80"
+              className="hidden lg:flex items-center gap-0.5 text-xs font-semibold text-slate-600 bg-slate-100/90 p-0.5 rounded-full border border-slate-200/70"
             >
               {languages.map((lang) => {
                 const isActive = currentLang === lang;
@@ -153,8 +175,8 @@ export const IndustrialHeader: React.FC<IndustrialHeaderProps> = ({
                     onClick={() => onLanguageChange(lang)}
                     className={`min-h-[28px] min-w-[32px] px-2 py-1 rounded-full text-xs font-bold transition-all duration-150 cursor-pointer flex items-center justify-center ${
                       isActive
-                        ? 'text-white bg-red-600 shadow-2xs'
-                        : 'text-slate-600 hover:text-slate-950 hover:bg-slate-200/60'
+                        ? 'text-white bg-red-600 shadow-xs'
+                        : 'text-slate-600 hover:text-slate-950 hover:bg-slate-200/70'
                     }`}
                     aria-current={isActive ? 'true' : undefined}
                   >
@@ -169,7 +191,7 @@ export const IndustrialHeader: React.FC<IndustrialHeaderProps> = ({
               <button
                 type="button"
                 onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-                className="min-h-[38px] min-w-[38px] sm:min-h-[40px] sm:min-w-[40px] px-2 sm:px-2.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200 text-slate-800 text-xs font-bold flex items-center justify-center gap-1 active:scale-95 transition-all cursor-pointer"
+                className="min-h-[38px] min-w-[38px] sm:min-h-[40px] sm:min-w-[40px] px-2 sm:px-2.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-bold flex items-center justify-center gap-1 active:scale-95 transition-all cursor-pointer hover:bg-slate-200/80"
                 aria-expanded={langDropdownOpen}
                 aria-label={`Zmień język. Aktualny: ${currentLang}`}
               >
@@ -180,7 +202,7 @@ export const IndustrialHeader: React.FC<IndustrialHeaderProps> = ({
 
               {/* Touch dropdown menu */}
               {langDropdownOpen && (
-                <div className="absolute right-0 top-full mt-2 w-32 bg-white rounded-2xl shadow-xl border border-slate-200/90 py-1.5 z-50 animate-in fade-in zoom-in-95 duration-150">
+                <div className="absolute right-0 top-full mt-2 w-36 bg-white rounded-2xl shadow-xl border border-slate-200/90 py-1.5 z-50 animate-in fade-in zoom-in-95 duration-150">
                   <div className="px-3 py-1 text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider border-b border-slate-100 mb-1">
                     Język / Lang
                   </div>
@@ -214,7 +236,7 @@ export const IndustrialHeader: React.FC<IndustrialHeaderProps> = ({
                 setMobileMenuOpen(false);
                 onOpenInquiry();
               }}
-              className="group relative inline-flex items-center justify-center gap-1 sm:gap-1.5 text-[11px] sm:text-xs lg:text-sm font-bold tracking-wide text-white min-h-[38px] sm:min-h-[42px] px-3 sm:px-4 lg:px-5 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-red-600 via-red-500 to-orange-500 hover:from-red-700 hover:to-orange-600 shadow-sm shadow-red-500/20 hover:shadow-md hover:shadow-red-500/30 transition-all duration-200 cursor-pointer active:scale-[0.98] whitespace-nowrap shrink-0"
+              className="group relative inline-flex items-center justify-center gap-1 sm:gap-1.5 text-[11px] sm:text-xs lg:text-sm font-bold tracking-wide text-white min-h-[38px] sm:min-h-[42px] px-3.5 sm:px-4.5 lg:px-5 py-1.5 sm:py-2 rounded-full bg-red-600 hover:bg-red-700 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer active:scale-[0.98] whitespace-nowrap shrink-0"
             >
               <span>{t.header.inquiryBtn}</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-white/90 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 hidden xs:inline-block" />
@@ -224,7 +246,7 @@ export const IndustrialHeader: React.FC<IndustrialHeaderProps> = ({
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden min-h-[38px] min-w-[38px] sm:min-h-[40px] sm:min-w-[40px] flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200/80 text-slate-800 transition-colors cursor-pointer active:scale-95"
+              className="lg:hidden min-h-[38px] min-w-[38px] sm:min-h-[40px] sm:min-w-[40px] flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200/80 text-slate-800 transition-colors cursor-pointer active:scale-95 border border-slate-200/70"
               aria-expanded={mobileMenuOpen}
               aria-label={mobileMenuOpen ? 'Zamknij menu' : 'Otwórz menu nawigacji'}
             >

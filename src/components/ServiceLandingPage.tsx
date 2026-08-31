@@ -125,7 +125,7 @@ export const ServiceLandingPage: React.FC<ServiceLandingPageProps> = ({
               className="flex items-center group focus:outline-hidden cursor-pointer"
               aria-label="CHEMOROZRUCH - Strona Główna"
             >
-              <div className="h-7 sm:h-8 w-auto flex items-center justify-start max-w-[180px] sm:max-w-[220px]">
+              <div className="h-7 sm:h-8 md:h-9 w-auto flex items-center justify-start">
                 <ChemorozruchLogo
                   variant="horizontal"
                   className="h-full w-auto max-h-full object-contain"

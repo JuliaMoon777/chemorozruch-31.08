@@ -116,7 +116,7 @@ export const IndustrialFooter: React.FC<IndustrialFooterProps> = ({
     <footer
       ref={footerRef}
       id="main-footer"
-      className="relative w-full bg-[#FAF9F5] text-slate-900 pt-16 sm:pt-20 lg:pt-24 pb-10 sm:pb-14 border-t border-slate-200/90 overflow-hidden select-none"
+      className="relative w-full bg-white text-slate-900 pt-16 sm:pt-20 lg:pt-24 pb-10 sm:pb-14 border-t border-slate-200/90 overflow-hidden select-none"
     >
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         
@@ -126,26 +126,26 @@ export const IndustrialFooter: React.FC<IndustrialFooterProps> = ({
           className="w-full h-px bg-slate-200 mb-10 sm:mb-14 will-change-transform"
         />
 
-        {/* TOP ROW: Official Brand Logo (Left) + Language Selector (Right) */}
+        {/* TOP ROW: Official Brand Logo on pure white (Left) + Language Selector (Right) */}
         <div
           ref={topRowRef}
           className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-10 sm:pb-12 border-b border-slate-200/80"
         >
-          {/* Left: Official Logo & Company Slogan */}
+          {/* Left: Official Logo & Company Slogan — Seamlessly integrated on clean white background */}
           <div
             onClick={scrollToTop}
-            className="flex flex-col sm:flex-row sm:items-center gap-3 cursor-pointer group select-none inline-flex"
+            className="flex flex-col sm:flex-row sm:items-center gap-4 cursor-pointer group select-none inline-flex"
             aria-label="CHEMOROZRUCH - Przejdź na górę strony"
           >
-            <div className="h-8 sm:h-9 lg:h-10 w-auto flex items-center justify-start max-w-[220px] sm:max-w-[260px]">
+            <div className="h-10 sm:h-11 lg:h-12 w-auto flex items-center justify-start">
               <ChemorozruchLogo
                 variant="horizontal"
-                className="h-full w-auto max-h-full object-contain"
+                className="h-full w-auto max-h-full object-contain select-none pointer-events-none"
                 alt="CHEMOROZRUCH"
                 priority={false}
               />
             </div>
-            <span className="text-xs text-slate-500 font-medium tracking-wide sm:border-l sm:border-slate-300 sm:pl-3">
+            <span className="text-xs text-slate-500 font-medium tracking-wide sm:border-l sm:border-slate-300 sm:pl-4">
               {t.companySub}
             </span>
           </div>

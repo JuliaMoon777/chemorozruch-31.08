@@ -13,30 +13,28 @@ interface ChemorozruchLogoProps {
 /**
  * ChemorozruchLogo
  * 
- * Official CHEMOROZRUCH Brand Logo Component.
- * Uses the exact official brand emblem and wordmark vectors / assets with preserved aspect ratio,
- * high-DPI sharpness, transparent background, and responsive scaling.
+ * Uses ONLY the exact official CHEMOROZRUCH brand assets supplied:
+ * Logo: https://i.postimg.cc/pdzX4Png/1.png (/brand/chemorozruch-logo.png)
+ * Favicon / Mark: https://i.postimg.cc/JhZ4vRBf/2.png (/brand/chemorozruch-favicon.png)
+ * 
+ * Preserves exact proportions, colors, typography, and transparency.
  */
 export const ChemorozruchLogo: React.FC<ChemorozruchLogoProps> = ({
   variant = 'horizontal',
-  className = 'h-8 sm:h-9 lg:h-10 w-auto',
+  className = 'h-full w-auto max-h-full object-contain',
   alt = 'CHEMOROZRUCH',
   iconOnly = false,
   priority = true,
 }) => {
   const selectedVariant: ChemorozruchLogoVariant = iconOnly
     ? 'mark'
-    : variant === 'stacked'
-    ? 'official'
     : (variant as ChemorozruchLogoVariant);
 
   if (selectedVariant === 'mark') {
     return (
       <img
-        src="/images/chemorozruch-logo-mark.svg"
+        src="/brand/chemorozruch-favicon.png"
         alt={alt}
-        width={640}
-        height={640}
         loading={priority ? 'eager' : 'lazy'}
         decoding="async"
         fetchPriority={priority ? 'high' : 'auto'}
@@ -45,28 +43,11 @@ export const ChemorozruchLogo: React.FC<ChemorozruchLogoProps> = ({
     );
   }
 
-  if (selectedVariant === 'official') {
-    return (
-      <img
-        src="/images/chemorozruch-logo-official.svg"
-        alt={alt}
-        width={1900}
-        height={1200}
-        loading={priority ? 'eager' : 'lazy'}
-        decoding="async"
-        fetchPriority={priority ? 'high' : 'auto'}
-        className={`object-contain select-none pointer-events-none ${className}`}
-      />
-    );
-  }
-
-  // Default: Horizontal Lockup (Emblem + CHEMOROZRUCH Wordmark)
+  // Exact Official Logo Lockup (from https://i.postimg.cc/pdzX4Png/1.png)
   return (
     <img
-      src="/images/chemorozruch-logo-horizontal.svg"
+      src="/brand/chemorozruch-logo.png"
       alt={alt}
-      width={2600}
-      height={640}
       loading={priority ? 'eager' : 'lazy'}
       decoding="async"
       fetchPriority={priority ? 'high' : 'auto'}
