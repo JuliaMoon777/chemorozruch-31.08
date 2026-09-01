@@ -377,7 +377,7 @@ export function getSafeOrganizationJsonLd(): object {
     '@id': 'https://chemorozruch.pl/#organization',
     name: COMPANY_DATA.brandName.value,
     url: 'https://chemorozruch.pl/',
-    logo: 'https://chemorozruch.pl/images/chemorozruch_plant_topdown_1787214324065.jpg',
+    logo: 'https://chemorozruch.pl/images/chemorozruch-logo-horizontal.png',
     description: 'Inżynieria i wykonawstwo przemysłowe: konstrukcje stalowe, aparaty ciśnieniowe, montaż instalacji przemysłowych oraz remonty technologiczne.',
   };
 

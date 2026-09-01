@@ -510,7 +510,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
         description: 'Specjalistyczne prace remontowe i modernizacja instalacji przemysłowych, rurociągów oraz aparatury. Remonty planowane, postoje technologiczne i serwis awaryjny.',
         keywords: 'remont i modernizacja instalacji przemysłowych, specjalistyczne prace remontowe, modernizacja instalacji przemysłowych, postoje technologiczne, remonty rurociągów, modernizacje pieców',
         h1: 'Remont i modernizacja instalacji przemysłowych – Specjalistyczne prace remontowe',
-        subtitle: 'Kompleksowe zarządzanie postojami technologicznymi, wymiana węzłów procesowych i odtwarzanie sprawności instalacji w trybie 24/7.',
+        subtitle: 'Kompleksowe zarządzanie postojami technologicznymi, wymiana węzłów procesowych i odtwarzanie sprawności instalacji.',
       },
       EN: {
         title: 'Industrial Plant Overhauls & Modernization Services | CHEMOROZRUCH',
@@ -578,12 +578,12 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Kompleksowe postoje remontowe (Turnarounds)',
             description: 'Zarządzanie całością prac mechanicznych w trakcie planowanych postojów technologicznych rafinerii, elektrociepłowni i zakładów chemicznych.',
-            details: ['Praca wielozmianowa 24/7', 'Koordynacja do 150 specjalistów na obiekcie', 'Ścisła kontrola harmonogramu CPM'],
+            details: ['Praca wielozmianowa', 'Koordynacja do 150 specjalistów na obiekcie', 'Ścisła kontrola harmonogramu CPM'],
           },
           {
             title: 'Wymiana i modernizacja rurociągów przemysłowych',
             description: 'Demontaż zużytych ciągów rurowych pary świeżej, kwasów, zasad, wodoru i gazu ziemnego oraz montaż nowych rurociągów ze stopów P91, P92, 1.4404 i tytanu.',
-            details: ['Spawanie TIG / Orbitalne', 'Obróbka cieplna PWHT spoin', 'Próby ciśnieniowe do 600 bar'],
+            details: ['Spawanie TIG / Orbitalne', 'Obróbka cieplna PWHT spoin', 'Próby ciśnieniowe i hydrostatyczne'],
           },
           {
             title: 'Remonty aparatury procesowej i wymienników ciepła',
@@ -604,12 +604,12 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Turnaround & Shutdown Management',
             description: 'Complete mechanical management during scheduled refinery, chemical complex, and power station turnarounds.',
-            details: ['Multi-shift round-the-clock execution', 'Mobilization of up to 150 site technicians', 'Strict CPM schedule tracking'],
+            details: ['Multi-shift execution', 'Mobilization of up to 150 site technicians', 'Strict CPM schedule tracking'],
           },
           {
             title: 'High-Pressure Piping Replacement & Rerouting',
             description: 'Dismantling degraded live steam, hydrogen, syngas, and acid lines and installing new alloy piping (P91, P92, 1.4404, Duplex).',
-            details: ['TIG / Orbital certified welding', 'Controlled on-site PWHT heat treatment', 'Hydrostatic pressure testing up to 600 bar'],
+            details: ['TIG / Orbital certified welding', 'Controlled on-site PWHT heat treatment', 'Hydrostatic pressure testing'],
           },
           {
             title: 'Vessel, Reactor & Heat Exchanger Overhauls',
@@ -630,12 +630,12 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Turnaround- und Stillstandsmanagement',
             description: 'Vollständige Abwicklung aller mechanischen Gewerke bei geplanten Generalstillständen.',
-            details: ['24/7-Schichtbetrieb', 'Bis zu 150 Fachkräfte vor Ort', 'Minutengenaue Terminverfolgung'],
+            details: ['Mehrschichtbetrieb', 'Bis zu 150 Fachkräfte vor Ort', 'Minutengenaue Terminverfolgung'],
           },
           {
             title: 'Rohrleitungserneuerung & Umverlegung',
             description: 'Demontage und Neuverlegung von Hochdruck-Dampf-, Säure- und Wasserstoffleitungen (P91, 1.4404, Duplex).',
-            details: ['WIG- und Orbitalschweißen', 'Geregelte PWHT-Wärmebehandlung', 'Druckprüfungen bis 600 bar'],
+            details: ['WIG- und Orbitalschweißen', 'Geregelte PWHT-Wärmebehandlung', 'Hydrostatische Druckprüfungen'],
           },
           {
             title: 'Wärmetauscher- und Behälterinstandsetzung',
@@ -661,7 +661,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Заміна та модернізація технологічних трубопроводів',
             description: 'Демонтаж зношених ліній пари, кислот, водню та монтаж нових трубопроводів зі сталей P91, 1.4404, Duplex.',
-            details: ['TIG / орбітальне зварювання', 'Термообробка зварних швів PWHT', 'Гідравлічні випробування до 600 бар'],
+            details: ['TIG / орбітальне зварювання', 'Термообробка зварних швів PWHT', 'Гідравлічні випробування'],
           },
           {
             title: 'Ремонт теплообмінників, реакторів та колон',
@@ -971,28 +971,28 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
         lead: 'CHEMOROZRUCH realizuje kompleksowe zadania w obszarze wytwarzania, prefabrykacji, montażu na fundamencie oraz modernizacji aparatury procesowej i zbiorników pracujących pod ciśnieniem.',
         paragraphs: [
           'Posiadamy pełen pakiet uprawnień Urzędu Dozoru Technicznego (UDT) do wytwarzania, modernizacji i naprawy urządzeń ciśnieniowych zgodnie z europejską Dyrektywą 2014/68/UE (PED) oraz modułami oceny zgodności G i H/H1.',
-          'Nasz park maszynowy w Oświęcimiu umożliwia zwijanie blach o grubościach do 40 mm, automatyczne spawanie łukiem krytym (SAW) płaszczy i dennic, precyzyjną obróbkę gniazd króćców oraz kompleksowe badania nieniszczące (RT, UT, MT, PT, VT).',
+          'Nasz park maszynowy w Oświęcimiu umożliwia zwijanie blach grubościennych, automatyczne spawanie łukiem krytym (SAW) płaszczy i dennic, precyzyjną obróbkę gniazd króćców oraz kompleksowe badania nieniszczące (RT, UT, MT, PT, VT).',
         ],
       },
       EN: {
         lead: 'CHEMOROZRUCH delivers end-to-end engineering, workshop fabrication, heavy on-site installation, and regulatory testing of high-pressure process vessels and storage units.',
         paragraphs: [
           'We hold comprehensive statutory authorizations from the Office of Technical Inspection (UDT) in accordance with the European Pressure Equipment Directive 2014/68/EU (PED Modules G & H/H1).',
-          'Our facilities feature 4-roll CNC plate bending rolls capable of rolling up to 40mm thick shells, submerged arc welding (SAW) columns, flange facing machinery, and complete in-house NDT inspection laboratories.',
+          'Our facilities feature 4-roll CNC plate bending rolls capable of rolling heavy-wall shells, submerged arc welding (SAW) columns, flange facing machinery, and complete in-house NDT inspection laboratories.',
         ],
       },
       DE: {
         lead: 'CHEMOROZRUCH fertigt, liefert und montiert schwere verfahrenstechnische Druckapparate und Wärmetauscher für anspruchsvolle Prozessbedingungen.',
         paragraphs: [
           'Wir verfügen über alle erforderlichen Zulassungen des Technischen Überwachungsamtes (UDT) gemäß der europäischen Druckgeräterichtlinie 2014/68/EU (DGRL).',
-          'Unsere Werkhallen ermöglichen das 4-Walzen-Rundbiegen von Blechen bis 40 mm Wandstärke, UP-Schweißen (SAW) von Längs- und Rundnähten sowie lückenlose ZfP-Prüfungen.',
+          'Unsere Werkhallen ermöglichen das 4-Walzen-Rundbiegen von Mantelteilen in schwerer Ausführung, UP-Schweißen (SAW) von Längs- und Rundnähten sowie lückenlose ZfP-Prüfungen.',
         ],
       },
       UA: {
         lead: 'CHEMOROZRUCH виготовляє, постачає та монтує технологічні апарати високого тиску та теплообмінне обладнання для агресивних середовищ.',
         paragraphs: [
           'Підприємство володіє повним комплектом дозволів UDT на проектування, виготовлення та ремонт обладнання під тиском відповідно до Директиви PED 2014/68/EU.',
-          'Наш виробничий парк включає 4-валкові вальці для гнуття листів товщиною до 40 мм, автоматичне зварювання під флюсом (SAW) та повний комплекс NDT контролю.',
+          'Наш виробничий парк включає 4-валкові вальці для гнуття товстостінних елементів, автоматичне зварювання під флюсом (SAW) та повний комплекс NDT контролю.',
         ],
       },
     },
@@ -1106,7 +1106,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
       PL: {
         title: 'Zdolności warsztatowe i park maszynowy',
         specs: [
-          { label: 'Zwijanie blach na zimno', value: 'Grubość do 40 mm, szerokość zwijania do 3000 mm' },
+          { label: 'Zwijanie blach na zimno', value: 'Zaawansowany park maszynowy i formowanie blach grubościennych' },
           { label: 'Średnice wytwarzanych aparatów', value: 'Od DN 500 do DN 4500 w całości w warsztacie' },
           { label: 'Spawanie automatyczne (SAW)', value: 'Słupowysięgniki spawalnicze do spoin wzdłużnych i obwodowych' },
           { label: 'Obróbka dennic i kołnierzy', value: 'Wytaczarki i tokarki karuzelowe wielkogabarytowe' },
@@ -1121,7 +1121,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
       EN: {
         title: 'Workshop Capabilities & Machine Infrastructure',
         specs: [
-          { label: 'Cold Plate Rolling', value: 'Thickness up to 40 mm, width up to 3,000 mm' },
+          { label: 'Cold Plate Rolling', value: 'Heavy plate bending and forming infrastructure' },
           { label: 'Vessel Diameters', value: 'From DN 500 up to DN 4500 fully workshop assembled' },
           { label: 'Submerged Arc Welding (SAW)', value: 'Automated welding booms for longitudinal and circumferential seams' },
           { label: 'Heavy Flange Machining', value: 'Large vertical boring mills and facing heads' },
@@ -1136,7 +1136,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
       DE: {
         title: 'Fertigungskapazitäten & Maschinenpark',
         specs: [
-          { label: 'Kaltrundwalzen', value: 'Blechdicke bis 40 mm, Walzenbreite bis 3.000 mm' },
+          { label: 'Kaltrundwalzen', value: 'Schweres Rundbiegen und Blechformung' },
           { label: 'Behälterdurchmesser', value: 'Von DN 500 bis DN 4500 komplett im Werk vorfertigbar' },
           { label: 'UP-Schweißautomaten', value: 'Schweißmasten für Längs- und Rundnähte' },
           { label: 'Zerspanung von Großflanschen', value: 'Große Karusseldrehmaschinen und Bohrwerke' },
@@ -1151,7 +1151,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
       UA: {
         title: 'Виробничі потужності цеху апаратів',
         specs: [
-          { label: 'Холодне вальцювання', value: 'Товщина до 40 мм, ширина листа до 3000 мм' },
+          { label: 'Холодне вальцювання', value: 'Вальцювання товстостінних листів' },
           { label: 'Діаметр апаратів', value: 'Від DN 500 до DN 4500 (повне заводське складання)' },
           { label: 'Автоматичне зварювання (SAW)', value: 'Зварювальні колони для поздовжніх та кільцевих швів' },
           { label: 'Механічна обробка', value: 'Великогабаритні карусельні та розточувальні верстати' },
@@ -1665,12 +1665,12 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Montaż turbozespołu i kompresora procesowego gazu',
             clientSector: 'Zakład Syntezy Chemicznej',
-            scope: 'Precyzyjny montaż kompresora odśrodkowego na fundamencie żelbetowym, zalanie masą epoksydową, osiowanie z dokładnością do 0,02 mm i próby 72h.',
+            scope: 'Precyzyjny montaż kompresora odśrodkowego na fundamencie żelbetowym, zalanie masą epoksydową, precyzyjne osiowanie laserowe oraz próby techniczne.',
           },
           {
             title: 'Montaż linii filtracji spalin z elektrofiltrem i wentylatorami ciągu',
             clientSector: 'Energetyka Przemysłowa',
-            scope: 'Montaż konstrukcji nośnej, elektrofiltru 3-polowego, wentylatorów spalin z silnikami 630 kW oraz kanałów spalin.',
+            scope: 'Montaż konstrukcji nośnej, elektrofiltru 3-polowego, wentylatorów spalin z silnikami o dużej mocy oraz kanałów spalin.',
           },
         ],
       },
@@ -1685,12 +1685,12 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Process Gas Turbocompressor Train Erection',
             clientSector: 'Chemical Synthesis Complex',
-            scope: 'High-precision mounting of centrifugal compressor train, epoxy grouting, alignment to 0.02 mm tolerance, and 72-hour continuous test run.',
+            scope: 'High-precision mounting of centrifugal compressor train, epoxy grouting, precision laser shaft alignment, and comprehensive test runs.',
           },
           {
             title: 'Flue Gas Treatment Line with Electrostatic Precipitator',
             clientSector: 'Industrial Power Sector',
-            scope: 'Structural erection, 3-field electrostatic precipitator assembly, 630 kW induced draft fan sets, and complete ductwork tie-in.',
+            scope: 'Structural erection, 3-field electrostatic precipitator assembly, high-power induced draft fan sets, and complete ductwork tie-in.',
           },
         ],
       },
@@ -1705,12 +1705,12 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Montage eines Prozessgas-Turbokompressorstrangs',
             clientSector: 'Chemische Industrie',
-            scope: 'Präzisionsmontage des Zentrifugalkompressors, Epoxidverguss, Ausrichtung mit 0,02 mm Toleranz und 72-Stunden-Dauerlauf.',
+            scope: 'Präzisionsmontage des Zentrifugalkompressors, Epoxidverguss, präzise Laserausrichtung und umfassende Testläufe.',
           },
           {
             title: 'Rauchgasreinigungsanlage mit Elektrofilter und Saugzuggebläsen',
             clientSector: 'Industriekraftwerk',
-            scope: 'Montage von Stahlgerüst, 3-Feld-Elektrofilter, 630-kW-Saugzuggebläsen und gasdichten Rauchgaskanälen.',
+            scope: 'Montage von Stahlgerüst, 3-Feld-Elektrofilter, Hochleistungs-Saugzuggebläsen und gasdichten Rauchgaskanälen.',
           },
         ],
       },
@@ -1725,12 +1725,12 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Монтаж турбокомпресора технологічного газу',
             clientSector: 'Хімічний завод',
-            scope: 'Монтаж відцентрового компресора, епоксидна підливка, центрування з точністю до 0,02 мм та 72-годинні комплексні випробування.',
+            scope: 'Монтаж відцентрового компресора, епоксидна підливка, точне лазерне центрування та комплексні випробування.',
           },
           {
             title: 'Монтаж лінії газоочистки з електрофільтром та димососами',
             clientSector: 'Промислова енергетика',
-            scope: 'Монтаж металоконструкцій, 3-пільного електрофільтра, димососів з двигунами 630 кВт та газоходів.',
+            scope: 'Монтаж металоконструкцій, 3-пільного електрофільтра, димососів з потужними приводами та газоходів.',
           },
         ],
       },

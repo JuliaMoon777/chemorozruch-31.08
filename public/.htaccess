@@ -1,0 +1,34 @@
+RewriteEngine On
+
+# HTTPS enforcement
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Confirmed Legacy 301 Redirects
+Redirect 301 /o-firmie /#company-discovery-section
+Redirect 301 /oferta /#competencies-section
+Redirect 301 /certyfikaty /#certificates-section
+Redirect 301 /realizacje /#realizations-section
+Redirect 301 /kontakt /#kontakt-cta
+
+# Browser Caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# Serve existing static files and prerendered HTML directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# SPA Fallback for client-side routing
+RewriteRule ^(.*)$ /index.html [L]
