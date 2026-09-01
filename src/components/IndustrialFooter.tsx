@@ -226,10 +226,6 @@ export const IndustrialFooter: React.FC<IndustrialFooterProps> = ({
                   </span>
                 </a>
               </div>
-
-              <div className="pt-1 text-xs text-slate-500 font-mono">
-                <span>NIP: {COMPANY_DATA.nipFormatted} • REGON: {COMPANY_DATA.regon}</span>
-              </div>
             </div>
           </div>
 
@@ -462,7 +458,7 @@ export const IndustrialFooter: React.FC<IndustrialFooterProps> = ({
         >
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
             <span>
-              © {new Date().getFullYear()} {COMPANY_DATA.brandName.value} • {COMPANY_DATA.legalName}
+              © {new Date().getFullYear()} {COMPANY_DATA.brandName.value}
             </span>
             <span>•</span>
             <span>{t.allRightsReserved}</span>

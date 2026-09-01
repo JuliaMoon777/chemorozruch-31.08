@@ -178,47 +178,47 @@ export const COMPANY_DATA: CompanyDataConfig = {
   // 6. Płock Address
   plockAddress: {
     value: {
-      streetAddress: 'ul. Zglenickiego 44',
+      streetAddress: 'Płock',
       postalCode: '09-400',
       city: 'Płock',
       country: 'Polska',
-      fullString: 'ul. Zglenickiego 44, 09-400 Płock, Polska (Teren Kompleksu Przemysłowego PKN ORLEN)',
+      fullString: 'Płock, Polska',
     },
     requiresConfirmation: true,
-    notes: 'Discrepancy noted: Zglenickiego 44 vs Zglenickiego 50 F',
+    notes: 'Precise street address unconfirmed; using municipality',
   },
   plockBranchAddress: {
     value: {
-      streetAddress: 'ul. Zglenickiego 44',
+      streetAddress: 'Płock',
       postalCode: '09-400',
       city: 'Płock',
       country: 'Polska',
-      fullString: 'ul. Zglenickiego 44, 09-400 Płock, Polska (Teren Kompleksu Przemysłowego PKN ORLEN)',
+      fullString: 'Płock, Polska',
     },
     requiresConfirmation: true,
-    notes: 'Discrepancy noted: Zglenickiego 44 vs Zglenickiego 50 F',
+    notes: 'Precise street address unconfirmed; using municipality',
   },
 
   // 7. NIP
   NIP: {
-    value: '5490001815',
-    formatted: '549-00-01-815',
+    value: '',
+    formatted: '',
     requiresConfirmation: true,
-    notes: 'Discrepancy noted with LegalModal legacy draft (549-000-24-41 vs 5490001815)',
+    notes: 'Pending confirmation - excluded from schema and public display',
   },
 
   // 8. REGON
   REGON: {
-    value: '070494488',
+    value: '',
     requiresConfirmation: true,
-    notes: 'Discrepancy noted with LegalModal legacy draft (070440360 vs 070494488)',
+    notes: 'Pending confirmation - excluded from schema and public display',
   },
 
   // 9. KRS
   KRS: {
-    value: '0000057211',
+    value: '',
     requiresConfirmation: true,
-    notes: 'Discrepancy noted with LegalModal legacy draft (0000088880 vs 0000057211)',
+    notes: 'Pending confirmation - excluded from schema and public display',
   },
 
   // 10. Main Phone
@@ -299,16 +299,16 @@ export const COMPANY_DATA: CompanyDataConfig = {
 
   // VAT ID
   vatId: {
-    value: 'PL5490001815',
+    value: '',
     requiresConfirmation: true,
   },
 
   // Backwards-compatible shortcuts for UI components
-  legalName: 'CHEMOROZRUCH Sp. z o.o.',
-  nip: '5490001815',
-  nipFormatted: '549-00-01-815',
-  regon: '070494488',
-  krs: '0000057211',
+  legalName: 'CHEMOROZRUCH',
+  nip: '',
+  nipFormatted: '',
+  regon: '',
+  krs: '',
 
   contacts: {
     generalHQ: {

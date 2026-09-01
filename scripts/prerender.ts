@@ -113,7 +113,6 @@ function buildRoutes(): PrerenderRoute[] {
         <div class="branch-card">
           <h3>${branch.city} (${branch.role})</h3>
           <p>${branch.address}, ${branch.postalCode} ${branch.city}</p>
-          <p>NIP: ${COMPANY_DATA.nipFormatted} | REGON: ${COMPANY_DATA.regon}</p>
         </div>
       `
       )
@@ -190,15 +189,14 @@ function buildRoutes(): PrerenderRoute[] {
           <section id="kontakt-cta">
             <h2>${t.contactCTA.heading}</h2>
             <p>${t.contactCTA.supporting}</p>
-            <p><strong>${COMPANY_DATA.legalName}</strong></p>
+            <p><strong>${COMPANY_DATA.brandName.value}</strong></p>
             <p>Siedziba: ${COMPANY_DATA.operationalAddress.value.fullString}</p>
             <p>Oddział Płock: ${COMPANY_DATA.plockBranchAddress.value.fullString}</p>
-            <p>NIP: ${COMPANY_DATA.nipFormatted} | REGON: ${COMPANY_DATA.regon} | KRS: ${COMPANY_DATA.krs}</p>
             <p>Telefon: ${COMPANY_DATA.contacts.generalHQ.phone} | Email: ${COMPANY_DATA.contacts.generalHQ.email}</p>
           </section>
         </main>
         <footer>
-          <p>© ${new Date().getFullYear()} ${COMPANY_DATA.legalName}. ${t.footer.allRightsReserved}</p>
+          <p>© ${new Date().getFullYear()} ${COMPANY_DATA.brandName.value}. ${t.footer.allRightsReserved}</p>
           <p>
             <a href="/rodo">${t.footer.columns.rodo}</a> |
             <a href="/sygnalisci">${t.footer.columns.whistleblower}</a>
@@ -329,7 +327,7 @@ function buildRoutes(): PrerenderRoute[] {
             </article>
           </main>
           <footer>
-            <p>© ${new Date().getFullYear()} ${COMPANY_DATA.legalName}.</p>
+            <p>© ${new Date().getFullYear()} ${COMPANY_DATA.brandName.value}.</p>
             <p><a href="/rodo">RODO</a> | <a href="/sygnalisci">Sygnaliści</a></p>
           </footer>
         `,
@@ -484,7 +482,7 @@ function buildRoutes(): PrerenderRoute[] {
           </article>
         </main>
         <footer>
-          <p>© ${new Date().getFullYear()} ${COMPANY_DATA.legalName}. Wszelkie prawa zastrzeżone.</p>
+          <p>© ${new Date().getFullYear()} ${COMPANY_DATA.brandName.value}. Wszelkie prawa zastrzeżone.</p>
         </footer>
       `,
       structuredData: {

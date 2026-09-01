@@ -109,28 +109,28 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
       PL: {
         lead: 'CHEMOROZRUCH posiada ponad 50 lat udokumentowanego doświadczenia w wytwarzaniu oraz montażu konstrukcji stalowych pracujących w najbardziej wymagających warunkach przemysłu chemicznego, petrochemicznego i energetycznego.',
         paragraphs: [
-          'Dysponujemy własnymi halami produkcyjnymi w Oświęcimiu wyposażonymi w suwnice do 16 ton, zaawansowane 3D wycinarki plazmowo-tlenowe, komory śrutownicze oraz malarnię hydrodynamiczną. Pozwala to na realizację skomplikowanych obiektów inżynieryjnych od etapu weryfikacji dokumentacji warsztatowej aż po ostateczny montaż na obiekcie.',
+          'Dysponujemy własnymi halami produkcyjnymi w Oświęcimiu wyposażonymi w suwnice pomostowe, zaawansowane 3D wycinarki plazmowo-tlenowe, komory śrutownicze oraz malarnię hydrodynamiczną. Pozwala to na realizację skomplikowanych obiektów inżynieryjnych od etapu weryfikacji dokumentacji warsztatowej aż po ostateczny montaż na obiekcie.',
           'Wszystkie nasze procesy spawalnicze i wytwórcze podlegają rygorystycznej kontroli wg normy PN-EN 1090-2 (klasa wykonania EXC3) oraz PN-EN ISO 3834-2, nadzorowanej przez własny personel badań nieniszczących NDT (VT, PT, MT, UT).',
         ],
       },
       EN: {
         lead: 'CHEMOROZRUCH brings over 50 years of certified engineering excellence in heavy industrial structural steel fabrication and erection for chemical, petrochemical, and power generation plants.',
         paragraphs: [
-          'Our manufacturing facilities in Oświęcim are equipped with 16t overhead cranes, 3D CNC plasma/oxyfuel cutting tables, shot-blasting chambers, and climate-controlled coating shops, ensuring full in-house control over fabrication cycles.',
+          'Our manufacturing facilities in Oświęcim are equipped with heavy overhead cranes, 3D CNC plasma/oxyfuel cutting tables, shot-blasting chambers, and climate-controlled coating shops, ensuring full in-house control over fabrication cycles.',
           'Every fabrication batch complies strictly with EN 1090-2 Execution Class EXC3 and ISO 3834-2 quality criteria, backed by internal Level II NDT inspectors.',
         ],
       },
       DE: {
         lead: 'CHEMOROZRUCH verfügt über mehr als 50 Jahre Erfahrung in der Fertigung und Montage von anspruchsvollen Industriestahlbauten für Chemie, Petrochemie und Kraftwerke.',
         paragraphs: [
-          'Unsere Werkhallen in Oświęcim verfügen über Hallenkrane bis 16t Traglast, 3D-CNC-Plasmaschneidanlagen, automatisierte Strahlkammern und Beschichtungsanlagen.',
+          'Unsere Werkhallen in Oświęcim verfügen über leistungsstarke Hallenkrane, 3D-CNC-Plasmaschneidanlagen, automatisierte Strahlkammern und Beschichtungsanlagen.',
           'Alle Schweiß- und Fertigungsprozesse erfüllen die strengen Anforderungen nach DIN EN 1090-2 (Ausführungsklasse EXC3) und DIN EN ISO 3834-2.',
         ],
       },
       UA: {
         lead: 'CHEMOROZRUCH має понад 50 років досвіду у виготовленні та монтажі важких металоконструкцій для хімічної, нафтохімічної та енергетичної галузей.',
         paragraphs: [
-          'Наші виробничі потужності в Освенцимі оснащені мостовими кранами до 16 тонн, 3D-плазмовими порталами, дробоструминними та фарбувальними камерами.',
+          'Наші виробничі потужності в Освенцимі оснащені мостовими кранами, 3D-плазмовими порталами, дробоструминними та фарбувальними камерами.',
           'Виробництво повністю відповідає стандарту EN 1090-2 (клас виконання EXC3) та ISO 3834-2.',
         ],
       },
@@ -148,7 +148,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Konstrukcje wsporcze aparatów i reaktorów',
             description: 'Ciężkie konstrukcje nośne dla kolumn destylacyjnych, cyklonów, zbiorników pionowych i poziomych oraz pieców technologicznych.',
-            details: ['Stale o podwyższonej wytrzymałości', 'Tolerancje montażowe zgodnie z EN 1090-2', 'Montaż dźwigami samojezdnymi do 500t'],
+            details: ['Stale o podwyższonej wytrzymałości', 'Tolerancje montażowe zgodnie z EN 1090-2', 'Montaż z wykorzystaniem odpowiednio dobranego sprzętu dźwigowego'],
           },
           {
             title: 'Szkielety hal przemysłowych i wiat technologicznych',
@@ -174,7 +174,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Apparatus Support Structures & Tower Framing',
             description: 'Heavy structural frames for distillation columns, reactors, furnaces, and pressurized process vessels.',
-            details: ['High-yield structural steels', 'Sub-millimeter assembly tolerances', 'Heavy crane lifts up to 500t'],
+            details: ['High-yield structural steels', 'Sub-millimeter assembly tolerances', 'Heavy crane rigging and specialized lifting operations'],
           },
           {
             title: 'Industrial Plant Buildings & Canopy Frameworks',
@@ -200,7 +200,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Tragwerke für Reaktoren & Kolonnen',
             description: 'Schwere Traggerüste für Kolonnen, Reaktoren und Industrieöfen.',
-            details: ['Hochfeste Baustähle', 'TÜV-überwachte Fertigung', 'Kranmontagen bis 500t'],
+            details: ['Hochfeste Baustähle', 'TÜV-überwachte Fertigung', 'Kranmontagen mit modernem Hebe- und Schwerlast-Equipment'],
           },
           {
             title: 'Industriehallen & Maschinengebäude',
@@ -226,7 +226,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Опорні конструкції колон і реакторів',
             description: 'Несучі металоконструкції для ректифікаційних колон, реакторів та теплообмінників.',
-            details: ['Високоміцні сталі', 'Монтаж автокранами до 500т', 'Контроль геометрії EN 1090-2'],
+            details: ['Високоміцні сталі', 'Монтаж автокранами та важкою підйомною технікою', 'Контроль геометрії EN 1090-2'],
           },
           {
             title: 'Каркаси промислових будівель та цехів',
@@ -245,10 +245,10 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
       PL: {
         title: 'Możliwości produkcyjne i certyfikacja',
         specs: [
-          { label: 'Zdolność produkcyjna', value: 'do 250 ton konstrukcji miesięcznie' },
+          { label: 'Zdolność produkcyjna', value: 'Produkcja konstrukcji stalowych' },
           { label: 'Klasa wykonania wg EN 1090-2', value: 'EXC1, EXC2, EXC3' },
-          { label: 'Maksymalny udźwig suwnic', value: '16 000 kg w pojedynczym elemencie' },
-          { label: 'Cięcie termiczne CNC', value: 'Plazma HD i tlen do grubości 150 mm' },
+          { label: 'Udźwig suwnic', value: 'Dostosowany do wielkogabarytowych konstrukcji' },
+          { label: 'Cięcie termiczne CNC', value: 'Plazma HD i tlen do grubych blach konstrukcyjnych' },
           { label: 'Zabezpieczenie antykorozyjne', value: 'Śrutowanie Sa 2.5, natrysk hydrodynamiczny, ocynk' },
         ],
         certifications: [
@@ -261,10 +261,10 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
       EN: {
         title: 'Fabrication Capacity & Quality Certificates',
         specs: [
-          { label: 'Monthly Capacity', value: 'Up to 250 tonnes structural steel / month' },
+          { label: 'Fabrication Scope', value: 'Heavy and complex structural steelwork' },
           { label: 'Execution Class EN 1090-2', value: 'EXC1, EXC2, EXC3' },
-          { label: 'Max Crane Single Lift', value: '16,000 kg' },
-          { label: 'CNC Thermal Cutting', value: 'HD Plasma & Oxyfuel up to 150 mm' },
+          { label: 'Crane Handling', value: 'Heavy structural component handling' },
+          { label: 'CNC Thermal Cutting', value: 'HD Plasma & Oxyfuel cutting' },
           { label: 'Corrosion Protection', value: 'Sa 2.5 shot-blasting, airless spraying, HDG' },
         ],
         certifications: [
@@ -277,10 +277,10 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
       DE: {
         title: 'Fertigungskapazitäten und Qualitätszertifikate',
         specs: [
-          { label: 'Monatliche Kapazität', value: 'bis zu 250 t Stahlkonstruktionen / Monat' },
+          { label: 'Fertigungskapazität', value: 'Großvolumige Stahlbaufertigung' },
           { label: 'Ausführungsklasse EN 1090-2', value: 'EXC1, EXC2, EXC3' },
-          { label: 'Kran-Einzellast', value: '16.000 kg' },
-          { label: 'CNC-Schneiden', value: 'HD-Plasma & Autogen bis 150 mm Blechdicke' },
+          { label: 'Krananlagen', value: 'Ausgelegt für schwere Großkomponenten' },
+          { label: 'CNC-Schneiden', value: 'HD-Plasma & Autogenschneiden für Dickbleche' },
           { label: 'Korrosionsschutz', value: 'Strahlen Sa 2.5, Airless-Beschichtung, Verzinkung' },
         ],
         certifications: [
@@ -293,10 +293,10 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
       UA: {
         title: 'Виробничі потужності та сертифікати',
         specs: [
-          { label: 'Виробнича потужність', value: 'до 250 тонн металоконструкцій щомісяця' },
+          { label: 'Виробнича потужність', value: 'Виробництво важких металоконструкцій' },
           { label: 'Клас виконання EN 1090-2', value: 'EXC1, EXC2, EXC3' },
-          { label: 'Вантажопідйомність кранів', value: '16 000 кг (один елемент)' },
-          { label: 'ЧПК розкрій металу', value: 'HD плазма та кисневе різання до 150 мм' },
+          { label: 'Кранове обладнання', value: 'Для великогабаритних конструкцій' },
+          { label: 'ЧПК розкрій металу', value: 'HD плазма та кисневе різання товстого листа' },
           { label: 'Антикорозійний захист', value: 'Дробоструминна обробка Sa 2.5, фарбування' },
         ],
         certifications: [
@@ -380,17 +380,17 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Montaż estakad rurowych i wież technologicznych',
             clientSector: 'Sektor Petrochemiczny / Rafineryjny',
-            scope: 'Wykonanie, cynkowanie ogniowe i montaż 450 ton konstrukcji wsporczych rurociągów oraz klatek schodowych na czynnej instalacji hydrokrakingu.',
+            scope: 'Wykonanie, cynkowanie ogniowe i montaż konstrukcji wsporczych rurociągów oraz klatek schodowych na czynnej instalacji hydrokrakingu.',
           },
           {
             title: 'Konstrukcja nośna instalacji syntezy',
             clientSector: 'Przemysł Chemiczny i Nawozowy',
-            scope: 'Prefabrykacja i montaż 320 ton konstrukcji aparatowych oraz podestów obsługowych reaktora katalitycznego.',
+            scope: 'Prefabrykacja i montaż konstrukcji aparatowych oraz podestów obsługowych reaktora katalitycznego.',
           },
           {
             title: 'Hala pompowni i kompresorowni przemysłowej',
             clientSector: 'Energetyka Zawodowa',
-            scope: 'Kompleksowy montaż konstrukcji szkieletowej hali z podtorzem suwnicy 20t oraz obudową ścienną i dachową.',
+            scope: 'Kompleksowy montaż konstrukcji szkieletowej hali z podtorzem suwnicy oraz obudową ścienną i dachową.',
           },
         ],
       },
@@ -400,17 +400,17 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Pipe Racks and Process Towers Erection',
             clientSector: 'Petrochemical & Refining Sector',
-            scope: 'Fabrication, hot-dip galvanizing, and heavy crane erection of 450 tonnes of pipe racks and stair towers on an active hydrocracker unit.',
+            scope: 'Fabrication, hot-dip galvanizing, and heavy crane erection of pipe racks and stair towers on an active hydrocracker unit.',
           },
           {
             title: 'Synthesis Unit Heavy Support Structure',
             clientSector: 'Chemical & Fertilizer Industry',
-            scope: 'Turnkey fabrication and erection of 320 tonnes of reactor frames and maintenance galleries.',
+            scope: 'Turnkey fabrication and erection of reactor frames and maintenance galleries.',
           },
           {
             title: 'Compressor and Pump Station Hall',
             clientSector: 'Power Generation',
-            scope: 'Full structural frame erection with 20t overhead crane gantry rails and thermal sandwich envelope.',
+            scope: 'Full structural frame erection with overhead crane gantry rails and thermal sandwich envelope.',
           },
         ],
       },
@@ -420,17 +420,17 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Montage von Rohrbrücken & Prozesstürmen',
             clientSector: 'Petrochemische Industrie / Raffinerien',
-            scope: 'Fertigung, Feuerverzinkung und Montage von 450 Tonnen Rohrträgern und Treppentürmen auf einer laufenden Anlage.',
+            scope: 'Fertigung, Feuerverzinkung und Montage von Rohrträgern und Treppentürmen auf einer laufenden Anlage.',
           },
           {
             title: 'Traggerüst für Synthesereaktor',
             clientSector: 'Chemische Industrie & Düngemittel',
-            scope: 'Vorfertigung und Montage von 320 Tonnen Reaktor-Traggerüsten und Bedienbühnen.',
+            scope: 'Vorfertigung und Montage von Reaktor-Traggerüsten und Bedienbühnen.',
           },
           {
             title: 'Industriehalle für Pumpen und Verdichter',
             clientSector: 'Energiewirtschaft',
-            scope: 'Stahltragwerk mit 20t-Kranbahn und Sandwichpaneel-Wandverkleidung.',
+            scope: 'Stahltragwerk mit Kranbahn und Sandwichpaneel-Wandverkleidung.',
           },
         ],
       },
@@ -440,17 +440,17 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Монтаж трубних естакад та технологічних веж',
             clientSector: 'Нафтопереробний сектор',
-            scope: 'Виготовлення, гаряче цинкування та монтаж 450 тонн опорних металоконструкцій на діючій установці гідрокрекінгу.',
+            scope: 'Виготовлення, гаряче цинкування та монтаж опорних металоконструкцій на діючій установці гідрокрекінгу.',
           },
           {
             title: 'Несучі конструкції установки синтезу',
             clientSector: 'Хімічна промисловість',
-            scope: 'Префабрикація та монтаж 320 тонн каркасів реакторів і обслуговуючих майданчиків.',
+            scope: 'Префабрикація та монтаж каркасів реакторів і обслуговуючих майданчиків.',
           },
           {
             title: 'Цех компресорної та насосної станції',
             clientSector: 'Енергетика',
-            scope: 'Монтаж металевого каркаса цеху з підкрановою колією 20т та огороджувальними конструкціями.',
+            scope: 'Монтаж металевого каркаса цеху з підкрановою колією та огороджувальними конструкціями.',
           },
         ],
       },
@@ -1004,7 +1004,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Aparaty ciśnieniowe i reaktory chemiczne',
             description: 'Wytwarzanie i montaż pionowych i poziomych reaktorów katalitycznych, mieszalników, autoklawów oraz separatorów faz.',
-            details: ['Praca przy ciśnieniach do 250 bar', 'Wbudowane wężownice i mieszadła', 'Płaszcze grzejno-chłodzące'],
+            details: ['Praca w szerokim zakresie ciśnień procesowych', 'Wbudowane wężownice i mieszadła', 'Płaszcze grzejno-chłodzące'],
           },
           {
             title: 'Zbiorniki ciśnieniowe i magazynowe',
@@ -1030,7 +1030,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'High-Pressure Chemical Reactors & Autoclaves',
             description: 'Design verification, fabrication, and erection of catalytic reactors, autoclaves, and phase separators.',
-            details: ['Design pressures up to 250 bar', 'Internal heating coils and agitator integration', 'Limpet coil and half-pipe jackets'],
+            details: ['Engineered for high process design pressures', 'Internal heating coils and agitator integration', 'Limpet coil and half-pipe jackets'],
           },
           {
             title: 'Pressure Storage Vessels & Buffer Tanks',
@@ -1056,7 +1056,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Druckapparate und Chemiereaktoren',
             description: 'Herstellung und Montage von katalytischen Reaktoren, Rührwerksbehältern und Phasentrennern.',
-            details: ['Drücke bis 250 bar', 'Integrierte Heizschlangen & Rührwerke', 'Halbrohrschlangen-Mäntel'],
+            details: ['Auslegung für anspruchsvolle Prozessdrücke', 'Integrierte Heizschlangen & Rührwerke', 'Halbrohrschlangen-Mäntel'],
           },
           {
             title: 'Druckbehälter und Lagertanks',
@@ -1071,7 +1071,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Destillations- und Rektifikationskolonnen',
             description: 'Segmentfertigung, Baustellenmontage und Schwerlastaufrichtung von Kolonnen.',
-            details: ['Einbau von Glockenböden und Packungen', 'Tandem-Kranzüge bis 500t', 'Laserjustierung'],
+            details: ['Einbau von Glockenböden und Packungen', 'Tandem-Kranzüge und Schwermontage', 'Laserjustierung'],
           },
         ],
       },
@@ -1082,7 +1082,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Апарати високого тиску та хімічні реактори',
             description: 'Виготовлення та монтаж каталітичних реакторів, автоклавів та сепараторів.',
-            details: ['Робочий тиск до 250 бар', 'Вбудовані змійовики та сорочки охолодження', 'Високолеговані сталі'],
+            details: ['Високі робочі тиски технологічних процесів', 'Вбудовані змійовики та сорочки охолодження', 'Високолеговані сталі'],
           },
           {
             title: 'Ємності під тиском та резервуари',
@@ -1107,7 +1107,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
         title: 'Zdolności warsztatowe i park maszynowy',
         specs: [
           { label: 'Zwijanie blach na zimno', value: 'Zaawansowany park maszynowy i formowanie blach grubościennych' },
-          { label: 'Średnice wytwarzanych aparatów', value: 'Od DN 500 do DN 4500 w całości w warsztacie' },
+          { label: 'Średnice wytwarzanych aparatów', value: 'Szeroki zakres średnic wytwarzany w warsztacie' },
           { label: 'Spawanie automatyczne (SAW)', value: 'Słupowysięgniki spawalnicze do spoin wzdłużnych i obwodowych' },
           { label: 'Obróbka dennic i kołnierzy', value: 'Wytaczarki i tokarki karuzelowe wielkogabarytowe' },
         ],
@@ -1122,7 +1122,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
         title: 'Workshop Capabilities & Machine Infrastructure',
         specs: [
           { label: 'Cold Plate Rolling', value: 'Heavy plate bending and forming infrastructure' },
-          { label: 'Vessel Diameters', value: 'From DN 500 up to DN 4500 fully workshop assembled' },
+          { label: 'Vessel Diameters', value: 'Wide range of vessel diameters fully workshop assembled' },
           { label: 'Submerged Arc Welding (SAW)', value: 'Automated welding booms for longitudinal and circumferential seams' },
           { label: 'Heavy Flange Machining', value: 'Large vertical boring mills and facing heads' },
         ],
@@ -1137,7 +1137,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
         title: 'Fertigungskapazitäten & Maschinenpark',
         specs: [
           { label: 'Kaltrundwalzen', value: 'Schweres Rundbiegen und Blechformung' },
-          { label: 'Behälterdurchmesser', value: 'Von DN 500 bis DN 4500 komplett im Werk vorfertigbar' },
+          { label: 'Behälterdurchmesser', value: 'Breites Durchmesserspektrum komplett im Werk vorfertigbar' },
           { label: 'UP-Schweißautomaten', value: 'Schweißmasten für Längs- und Rundnähte' },
           { label: 'Zerspanung von Großflanschen', value: 'Große Karusseldrehmaschinen und Bohrwerke' },
         ],
@@ -1152,7 +1152,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
         title: 'Виробничі потужності цеху апаратів',
         specs: [
           { label: 'Холодне вальцювання', value: 'Вальцювання товстостінних листів' },
-          { label: 'Діаметр апаратів', value: 'Від DN 500 до DN 4500 (повне заводське складання)' },
+          { label: 'Діаметр апаратів', value: 'Широкий діапазон діаметрів (повне заводське складання)' },
           { label: 'Автоматичне зварювання (SAW)', value: 'Зварювальні колони для поздовжніх та кільцевих швів' },
           { label: 'Механічна обробка', value: 'Великогабаритні карусельні та розточувальні верстати' },
         ],
@@ -1231,14 +1231,14 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
         title: 'Wybrane realizacje w obszarze aparatury ciśnieniowej',
         projects: [
           {
-            title: 'Wytworzenie i montaż kolumny destylacyjnej DN 2800',
+            title: 'Wytworzenie i montaż wielkogabarytowej kolumny destylacyjnej',
             clientSector: 'Sektor Rafineryjny',
             scope: 'Wykonanie ze stali kwasoodpornej 1.4404, transport gabarytowy, montaż pionowy dwoma dźwigami i odbiór UDT.',
           },
           {
             title: 'Bateria wymienników płaszczowo-rurowych wysokiego ciśnienia',
             clientSector: 'Przemysł Nawozowy i Chemiczny',
-            scope: 'Wytworzenie 4 wymienników ze stali Duplex 1.4462 pracujących pod ciśnieniem 120 bar z próbami helowymi.',
+            scope: 'Wytworzenie wymienników ze stali Duplex 1.4462 pracujących pod wysokim ciśnieniem z certyfikowanymi próbami szczelności.',
           },
           {
             title: 'Reaktor syntezy ze stali kwasoodpornej z płaszczem grzejnym',
@@ -1251,14 +1251,14 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
         title: 'Featured Pressure Vessel Projects',
         projects: [
           {
-            title: 'DN 2800 Distillation Column Fabrication & Rigging',
+            title: 'Large-Scale Distillation Column Fabrication & Rigging',
             clientSector: 'Oil Refinery Complex',
             scope: 'Fabricated from 316L stainless steel, heavy transport, tandem crane vertical lifting, and statutory UDT acceptance.',
           },
           {
             title: 'High-Pressure Shell & Tube Exchanger Battery',
             clientSector: 'Fertilizer & Chemical Plant',
-            scope: 'Manufacture of 4 Duplex 2205 exchangers operating at 120 bar with certified helium leak detection.',
+            scope: 'Manufacture of Duplex 2205 exchangers operating under high process pressure with certified leak testing.',
           },
           {
             title: 'Jacketed Chemical Synthesis Reactor',
@@ -1271,14 +1271,14 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
         title: 'Referenzen im Druckapparatebau',
         projects: [
           {
-            title: 'Fertigung und Aufrichtung einer Destillationskolonne DN 2800',
+            title: 'Fertigung und Aufrichtung einer Großraum-Destillationskolonne',
             clientSector: 'Raffinerieindustrie',
             scope: 'Herstellung aus Edelstahl 1.4404, Schwertransport, Tandem-Kranaufrichtung und UDT-Abnahme.',
           },
           {
             title: 'Batterie von Hochdruck-Rohrbündelwärmetauschern',
             clientSector: 'Düngemittel- und Chemieindustrie',
-            scope: 'Fertigung von 4 Wärmetauschern aus Duplex 1.4462 für 120 bar Betriebsdruck.',
+            scope: 'Fertigung von Wärmetauschern aus Duplex 1.4462 für anspruchsvolle Hochdruckanwendungen.',
           },
           {
             title: 'Beheizter Synthesereaktor aus Edelstahl',
@@ -1291,14 +1291,14 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
         title: 'Реалізовані проекти апаратів високого тиску',
         projects: [
           {
-            title: 'Виготовлення та монтаж колони DN 2800',
+            title: 'Виготовлення та монтаж великогабаритної колони',
             clientSector: 'Нафтопереробний сектор',
             scope: 'Виготовлення зі сталі 1.4404, негабаритне перевезення, підйом двома кранами та прийомка UDT.',
           },
           {
             title: 'Батарея кожухотрубних теплообмінників високого тиску',
             clientSector: 'Виробництво мінеральних добрив',
-            scope: 'Виготовлення 4 теплообмінників зі сталі Duplex 1.4462 на робочий тиск 120 бар.',
+            scope: 'Виготовлення теплообмінників зі сталі Duplex 1.4462 на високий робочий тиск.',
           },
           {
             title: 'Хімічний реактор з сорочкою обігріву',
@@ -1431,7 +1431,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Montaż maszyn wirnikowych i układów napędowych',
             description: 'Instalacja agregatów pompowych, kompresorów wielostopniowych, dmuchaw, wentylatorów przemysłowych, turbin parowych i generatorów.',
-            details: ['Osiowanie laserowe wałów (tolerancja < 0,03 mm)', 'Pomiary drgań i wibracji', 'Wypoziomowanie i zalewanie masami epoksydowymi'],
+            details: ['Precyzyjne osiowanie laserowe wałów', 'Pomiary drgań i wibracji', 'Wypoziomowanie i zalewanie masami epoksydowymi'],
           },
           {
             title: 'Montaż pompowni i stacji sprężania gazów',
@@ -1457,7 +1457,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Rotating Machinery & Drivetrain Assembly',
             description: 'Installation of high-capacity centrifugal pumps, multistage compressors, industrial blowers, steam turbines, and gearboxes.',
-            details: ['Laser shaft alignment (tolerance < 0.03 mm)', 'Baseline vibration measurement', 'Precision epoxy and cementitious grouting'],
+            details: ['Precision laser shaft alignment', 'Baseline vibration measurement', 'Precision epoxy and cementitious grouting'],
           },
           {
             title: 'Pump Stations & Gas Compression Packages',
@@ -1483,7 +1483,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Montage von Rotationsmaschinen & Antrieben',
             description: 'Aufstellung von Industriepumpen, mehrstufigen Kompressoren, Dampfturbinen, Gebläsen und Großgetrieben.',
-            details: ['Laseroptische Wellenausrichtung (< 0,03 mm)', 'Schwingungs- und Vibrationsmessung', 'Epoxidharz- und Zementverguss'],
+            details: ['Präzise laseroptische Wellenausrichtung', 'Schwingungs- und Vibrationsmessung', 'Epoxidharz- und Zementverguss'],
           },
           {
             title: 'Pumpstationen & Gasverdichteranlagen',
@@ -1509,7 +1509,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Монтаж динамічного обладнання та приводів',
             description: 'Встановлення насосних агрегатів, компресорів, вентиляторів, парових турбін та редукторів.',
-            details: ['Лазерне центрування валів (< 0,03 мм)', 'Вібраційний аналіз', 'Підливка епоксидними компаундами'],
+            details: ['Прецизійне лазерне центрування валів', 'Вібраційний аналіз', 'Підливка епоксидними компаундами'],
           },
           {
             title: 'Монтаж насосних станцій та компресорних',
@@ -1536,7 +1536,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           { label: 'Osiowanie laserowe', value: 'Systemy laserowe Prüftechnik / Easy-Laser do osiowania wałów i geometrii' },
           { label: 'Pomiary wibracji i drgań', value: 'Wibrometry i analizatory widma FFT do diagnostyki dynamicznej' },
           { label: 'Hydraulika siłowa i naciąg', value: 'Klucze hydrauliczne dynamometryczne, naciągacze śrub do M100' },
-          { label: 'Sprzęt dźwigowy i rolkowy', value: 'Zestawy rolek transportowych do 100t, siłowniki hydrauliczne synchronizowane' },
+          { label: 'Sprzęt dźwigowy i rolkowy', value: 'Zestawy rolek transportowych o wysokiej nośności, siłowniki hydrauliczne synchronizowane' },
         ],
         certifications: [
           'Uprawnienia UDT do montażu i konserwacji urządzeń ciśnieniowych',
@@ -1551,7 +1551,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           { label: 'Laser Optical Alignment', value: 'Prüftechnik / Easy-Laser multi-axis shaft and geometric alignment systems' },
           { label: 'Vibration Diagnostics', value: 'FFT spectrum vibration analyzers for dynamic rotational verification' },
           { label: 'Hydraulic Bolt Tensioning', value: 'Calibrated hydraulic torque wrenches and bolt tensioners up to M100' },
-          { label: 'Heavy Rigging Skates', value: 'Synchronized hydraulic jacking systems and heavy skates up to 100 tonnes' },
+          { label: 'Heavy Rigging Skates', value: 'Synchronized hydraulic jacking systems and heavy-duty rigging skates' },
         ],
         certifications: [
           'UDT Authorization for Industrial Mechanical Assembly',
@@ -1566,7 +1566,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           { label: 'Laser-Wellenausrichtung', value: 'Prüftechnik / Easy-Laser Lasermesssysteme für Wellen und Flansche' },
           { label: 'Schwingungsdiagnose', value: 'FFT-Schwingungsanalysatoren für Abnahmemessungen' },
           { label: 'Hydraulische Verschraubung', value: 'Drehmomentschrauber und hydraulische Schraubenspanner bis M100' },
-          { label: 'Schwerlast-Transportmittel', value: 'Hydraulische Hebegeräte und Schwerlast-Transportrollen bis 100 t' },
+          { label: 'Schwerlast-Transportmittel', value: 'Hydraulische Hebegeräte und Schwerlast-Transportrollen mit hoher Tragfähigkeit' },
         ],
         certifications: [
           'UDT-Montagezulassung für Industrieanlagen',
@@ -1581,7 +1581,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           { label: 'Лазерне центрування', value: 'Лазерні системи Prüftechnik / Easy-Laser для вивірки валів' },
           { label: 'Вікбродіагностика', value: 'Аналізатори спектру FFT для динамічних випробувань' },
           { label: 'Гідравлічний затяг', value: 'Гідравлічні динамометричні ключі та тензорні домкрати до М100' },
-          { label: 'Такелажне обладнання', value: 'Синхронізовані гідравлічні домкрати та котки до 100 тонн' },
+          { label: 'Такелажне обладнання', value: 'Синхронізовані гідравлічні домкрати та котки високої вантажопідйомності' },
         ],
         certifications: [
           'Дозволи UDT на монтаж промислового обладнання',
@@ -1660,7 +1660,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Montaż pompowni technologicznej i rurociągów przesyłowych',
             clientSector: 'Przemysł Petrochemiczny',
-            scope: 'Posadowienie i laserowe osiowanie 8 agregatów pompowych dużej wydajności, montaż kolektorów DN 600 ze stali kwasoodpornej i rozruch technologiczny.',
+            scope: 'Posadowienie i laserowe osiowanie agregatów pompowych dużej wydajności, montaż kolektorów ze stali kwasoodpornej i rozruch technologiczny.',
           },
           {
             title: 'Montaż turbozespołu i kompresora procesowego gazu',
@@ -1670,7 +1670,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Montaż linii filtracji spalin z elektrofiltrem i wentylatorami ciągu',
             clientSector: 'Energetyka Przemysłowa',
-            scope: 'Montaż konstrukcji nośnej, elektrofiltru 3-polowego, wentylatorów spalin z silnikami o dużej mocy oraz kanałów spalin.',
+            scope: 'Montaż konstrukcji nośnej, elektrofiltru, wentylatorów spalin z silnikami o dużej mocy oraz kanałów spalin.',
           },
         ],
       },
@@ -1680,7 +1680,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Process Pump Station & Transmission Manifolds',
             clientSector: 'Petrochemical Industry',
-            scope: 'Foundation setting and laser alignment of 8 high-capacity pump skids, installation of DN 600 stainless manifolds, and wet commissioning.',
+            scope: 'Foundation setting and laser alignment of high-capacity pump skids, installation of stainless manifolds, and wet commissioning.',
           },
           {
             title: 'Process Gas Turbocompressor Train Erection',
@@ -1690,7 +1690,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Flue Gas Treatment Line with Electrostatic Precipitator',
             clientSector: 'Industrial Power Sector',
-            scope: 'Structural erection, 3-field electrostatic precipitator assembly, high-power induced draft fan sets, and complete ductwork tie-in.',
+            scope: 'Structural erection, electrostatic precipitator assembly, high-power induced draft fan sets, and complete ductwork tie-in.',
           },
         ],
       },
@@ -1700,7 +1700,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Montage einer Prozess-Pumpstation und Verteilerleitungen',
             clientSector: 'Petrochemische Industrie',
-            scope: 'Aufstellung und Laserausrichtung von 8 Großpumpen-Aggregaten, Montage von DN-600-Edelstahlsammlern und Probebetrieb.',
+            scope: 'Aufstellung und Laserausrichtung von Großpumpen-Aggregaten, Montage von Edelstahlsammlern und Probebetrieb.',
           },
           {
             title: 'Montage eines Prozessgas-Turbokompressorstrangs',
@@ -1710,7 +1710,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Rauchgasreinigungsanlage mit Elektrofilter und Saugzuggebläsen',
             clientSector: 'Industriekraftwerk',
-            scope: 'Montage von Stahlgerüst, 3-Feld-Elektrofilter, Hochleistungs-Saugzuggebläsen und gasdichten Rauchgaskanälen.',
+            scope: 'Montage von Stahlgerüst, Elektrofilter, Hochleistungs-Saugzuggebläsen und gasdichten Rauchgaskanälen.',
           },
         ],
       },
@@ -1720,7 +1720,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Монтаж технологічної насосної станції та колекторів',
             clientSector: 'Нафтохімічний комплекс',
-            scope: 'Встановлення та лазерне центрування 8 насосних агрегатів, монтаж колекторів DN 600 з нержавіючої сталі та пусконалагодження.',
+            scope: 'Встановлення та лазерне центрування насосних агрегатів, монтаж колекторів з нержавіючої сталі та пусконалагодження.',
           },
           {
             title: 'Монтаж турбокомпресора технологічного газу',
@@ -1730,7 +1730,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Монтаж лінії газоочистки з електрофільтром та димососами',
             clientSector: 'Промислова енергетика',
-            scope: 'Монтаж металоконструкцій, 3-пільного електрофільтра, димососів з потужними приводами та газоходів.',
+            scope: 'Монтаж металоконструкцій, електрофільтра, димососів з потужними приводами та газоходів.',
           },
         ],
       },
