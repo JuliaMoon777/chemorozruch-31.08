@@ -36,7 +36,8 @@ export const IndustrialFooter: React.FC<IndustrialFooterProps> = ({
     if (elem) {
       elem.scrollIntoView({ behavior: 'smooth' });
     } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const homePath = buildLocalizedPath(undefined, currentLang);
+      window.location.href = `${homePath}#${targetId}`;
     }
   };
 

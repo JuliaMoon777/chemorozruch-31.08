@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Language } from '../types';
+import { COMPANY_DATA } from '../data/companyData';
 import { IndustrialHeader } from './IndustrialHeader';
 import { IndustrialHeroParallax } from './IndustrialHeroParallax';
 import { AnimatedNumbersSection } from './AnimatedNumbersSection';
@@ -52,7 +53,7 @@ export const ParallaxSite: React.FC<ParallaxSiteProps> = ({
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
     } else {
-      const email = 'oferty@chemorozruch.pl';
+      const email = COMPANY_DATA.contacts.tendering.email;
       const mailtoUrl = subject
         ? `mailto:${email}?subject=${encodeURIComponent(`Zapytanie ofertowe: ${subject}`)}`
         : `mailto:${email}?subject=${encodeURIComponent('Zapytanie ofertowe — CHEMOROZRUCH')}`;

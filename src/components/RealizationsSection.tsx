@@ -118,6 +118,7 @@ export const RealizationsSection: React.FC<RealizationsSectionProps> = ({ curren
       ref={sectionRef}
       className="relative w-full bg-[#F7F7F3] text-slate-900 overflow-hidden py-16 sm:py-20 lg:py-24"
     >
+      <div id="realizations-section" className="absolute -top-20 left-0 w-px h-px opacity-0 pointer-events-none" />
       {/* Background Subtle Architectural Grid lines */}
       <div className="absolute inset-0 pointer-events-none opacity-30 select-none">
         <div className="max-w-7xl mx-auto h-full px-6 sm:px-8 lg:px-12 flex justify-between">

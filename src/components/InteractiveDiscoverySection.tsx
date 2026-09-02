@@ -123,6 +123,7 @@ export const InteractiveDiscoverySection: React.FC<InteractiveDiscoverySectionPr
       id="company-discovery-section"
       className="relative w-full bg-[#f8fafc] text-slate-900 py-16 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-12 border-t border-slate-200/80 overflow-hidden"
     >
+      <div id="o-firmie" className="absolute -top-20 left-0 w-px h-px opacity-0 pointer-events-none" />
       <div className="max-w-7xl mx-auto">
         {/* Section Intro */}
         <div className="max-w-2xl mb-16 sm:mb-20">

@@ -76,6 +76,22 @@ export interface CompanyDataConfig {
       description?: string;
       requiresConfirmation: boolean;
     };
+    finance: {
+      department: string;
+      email: string;
+      phone: string;
+      phoneClean: string;
+      description?: string;
+      requiresConfirmation: boolean;
+    };
+    hr: {
+      department: string;
+      email: string;
+      phone: string;
+      phoneClean: string;
+      description?: string;
+      requiresConfirmation: boolean;
+    };
     management: {
       department: string;
       email: string;
@@ -88,6 +104,8 @@ export interface CompanyDataConfig {
       email: string;
       phone: string;
       phoneClean: string;
+      phoneMobile?: string;
+      phoneMobileClean?: string;
       description?: string;
       requiresConfirmation: boolean;
     };
@@ -140,63 +158,59 @@ export const COMPANY_DATA: CompanyDataConfig = {
   // 3. Registered Address (Siedziba rejestrowa)
   registeredAddress: {
     value: {
-      streetAddress: 'ul. Chemików 1',
+      streetAddress: 'ul. Lipowa 5',
       postalCode: '32-600',
       city: 'Oświęcim',
       country: 'Polska',
-      fullString: 'ul. Chemików 1, 32-600 Oświęcim, Polska',
+      fullString: 'ul. Lipowa 5, 32-600 Oświęcim, Polska',
     },
-    requiresConfirmation: true,
-    notes: 'Address in formal KRS registration vs operational plant address at ul. Unii Europejskiej 10',
+    requiresConfirmation: false,
   },
 
   // 4. Operational Address (Adres operacyjny / Zakład produkcyjny)
   operationalAddress: {
     value: {
-      streetAddress: 'ul. Unii Europejskiej 10',
+      streetAddress: 'ul. Lipowa 5',
       postalCode: '32-600',
       city: 'Oświęcim',
       country: 'Polska',
-      fullString: 'ul. Unii Europejskiej 10, 32-600 Oświęcim, Polska',
+      fullString: 'ul. Lipowa 5, 32-600 Oświęcim, Polska',
     },
-    requiresConfirmation: true,
-    notes: 'Operational manufacturing workshop and engineering base',
+    requiresConfirmation: false,
   },
 
   // 5. Oświęcim Address
   oswiecimAddress: {
     value: {
-      streetAddress: 'ul. Unii Europejskiej 10',
+      streetAddress: 'ul. Lipowa 5',
       postalCode: '32-600',
       city: 'Oświęcim',
       country: 'Polska',
-      fullString: 'ul. Unii Europejskiej 10, 32-600 Oświęcim, Polska',
+      fullString: 'ul. Lipowa 5, 32-600 Oświęcim, Polska',
     },
-    requiresConfirmation: true,
+    requiresConfirmation: false,
   },
 
   // 6. Płock Address
   plockAddress: {
     value: {
-      streetAddress: 'Płock',
+      streetAddress: 'ul. Witolda Zglenickiego 50 F',
       postalCode: '09-400',
       city: 'Płock',
       country: 'Polska',
-      fullString: 'Płock, Polska',
+      fullString: 'ul. Witolda Zglenickiego 50 F, 09-400 Płock, Polska',
     },
-    requiresConfirmation: true,
-    notes: 'Precise street address unconfirmed; using municipality',
+    requiresConfirmation: false,
   },
   plockBranchAddress: {
     value: {
-      streetAddress: 'Płock',
+      streetAddress: 'ul. Witolda Zglenickiego 50 F',
       postalCode: '09-400',
       city: 'Płock',
       country: 'Polska',
-      fullString: 'Płock, Polska',
+      fullString: 'ul. Witolda Zglenickiego 50 F, 09-400 Płock, Polska',
     },
-    requiresConfirmation: true,
-    notes: 'Precise street address unconfirmed; using municipality',
+    requiresConfirmation: false,
   },
 
   // 7. NIP
@@ -221,59 +235,55 @@ export const COMPANY_DATA: CompanyDataConfig = {
     notes: 'Pending confirmation - excluded from schema and public display',
   },
 
-  // 10. Main Phone
+  // 10. Main Phone (Sekretariat Zarządu)
   mainPhone: {
-    value: '+48 33 847 43 00',
-    formatted: '+48 33 847 43 00',
-    requiresConfirmation: true,
-    notes: 'Discrepancy noted with legacy switchboard (+48 33 847 21 00 vs +48 33 847 43 00)',
+    value: '+48 33 842 59 20',
+    formatted: '+48 33 842 59 20',
+    requiresConfirmation: false,
   },
 
-  // 11. Offer Phone
+  // 11. Offer Phone (Dział Handlowy)
   offerPhone: {
-    value: '+48 33 847 43 20',
-    formatted: '+48 33 847 43 20',
-    requiresConfirmation: true,
+    value: '+48 33 842 59 20, wew. 137',
+    formatted: '+48 33 842 59 20, wew. 137',
+    requiresConfirmation: false,
   },
 
   // 12. Płock Phone
   plockPhone: {
-    value: '+48 24 365 42 10',
-    formatted: '+48 24 365 42 10',
-    requiresConfirmation: true,
-    notes: 'Discrepancy noted (+48 24 365 42 10 vs +48 24 365 24 00)',
+    value: '+48 24 365 40 84',
+    formatted: '+48 24 365 40 84',
+    requiresConfirmation: false,
   },
 
-  // 13. General Email
+  // 13. General Email (Sekretariat Zarządu / Firma)
   generalEmail: {
-    value: 'biuro@chemorozruch.pl',
-    requiresConfirmation: true,
-    notes: 'Discrepancy noted (biuro@chemorozruch.pl vs poczta@chemorozruch.pl)',
+    value: 'firma@chemorozruch.pl',
+    requiresConfirmation: false,
   },
 
-  // 14. Offer Email
+  // 14. Offer Email (Dział Handlowy)
   offerEmail: {
-    value: 'oferty@chemorozruch.pl',
-    requiresConfirmation: true,
+    value: 'dzialhandlowy@chemorozruch.pl',
+    requiresConfirmation: false,
   },
 
   // 15. Płock Email
   plockEmail: {
     value: 'plock@chemorozruch.pl',
-    requiresConfirmation: true,
+    requiresConfirmation: false,
   },
 
   // 16. RODO Email
   rodoEmail: {
     value: 'rodo@chemorozruch.pl',
-    requiresConfirmation: true,
-    notes: 'Discrepancy noted (rodo@chemorozruch.pl vs iod@chemorozruch.pl)',
+    requiresConfirmation: false,
   },
 
   // 17. Sygnaliści Email
   sygnalisciEmail: {
     value: 'sygnalisci@chemorozruch.pl',
-    requiresConfirmation: true,
+    requiresConfirmation: false,
   },
 
   // 18. Coordinates
@@ -312,56 +322,74 @@ export const COMPANY_DATA: CompanyDataConfig = {
 
   contacts: {
     generalHQ: {
-      department: 'Centrala / Siedziba Główna Oświęcim',
-      email: 'biuro@chemorozruch.pl',
-      phone: '+48 33 847 43 00',
-      phoneClean: '+48338474300',
-      description: 'Sekretariat i biuro zarządu',
-      requiresConfirmation: true,
+      department: 'Sekretariat Zarządu / Centrala Oświęcim',
+      email: 'firma@chemorozruch.pl',
+      phone: '+48 33 842 59 20',
+      phoneClean: '+48338425920',
+      description: 'Sekretariat Zarządu',
+      requiresConfirmation: false,
     },
     tendering: {
-      department: 'Dział Ofertowania i Przygotowania Produkcji',
-      email: 'oferty@chemorozruch.pl',
-      phone: '+48 33 847 43 20',
-      phoneClean: '+48338474320',
-      description: 'Wyceny, zapytania ofertowe, kosztorysowanie konstrukcji i instalacji',
-      requiresConfirmation: true,
+      department: 'Dział Handlowy',
+      email: 'dzialhandlowy@chemorozruch.pl',
+      phone: '+48 33 842 59 20, wew. 137',
+      phoneClean: '+48338425920',
+      description: 'Wyceny, zapytania ofertowe, kosztorysowanie i realizacje',
+      requiresConfirmation: false,
+    },
+    finance: {
+      department: 'Dział Finansowy',
+      email: 'dzialfinansowy@chemorozruch.pl',
+      phone: '+48 33 842 59 20, wew. 114',
+      phoneClean: '+48338425920',
+      description: 'Księgowość, finanse i rozliczenia',
+      requiresConfirmation: false,
+    },
+    hr: {
+      department: 'Dział Personalny',
+      email: 'dzialpersonalny@chemorozruch.pl',
+      phone: '+48 33 842 59 20, wew. 108',
+      phoneClean: '+48338425920',
+      description: 'Sprawy pracownicze i rekrutacja',
+      requiresConfirmation: false,
     },
     management: {
-      department: 'Zarząd Spółki',
-      email: 'biuro@chemorozruch.pl',
-      phone: '+48 33 847 43 00',
-      phoneClean: '+48338474300',
-      requiresConfirmation: true,
+      department: 'Sekretariat Zarządu',
+      email: 'firma@chemorozruch.pl',
+      phone: '+48 33 842 59 20',
+      phoneClean: '+48338425920',
+      requiresConfirmation: false,
     },
     plockBranch: {
-      department: 'Oddział Płock',
+      department: 'Oddział w Płocku',
       email: 'plock@chemorozruch.pl',
-      phone: '+48 24 365 42 10',
-      phoneClean: '+48243654210',
-      description: 'Biuro techniczno-wykonawcze w Płocku',
-      requiresConfirmation: true,
+      phone: '+48 24 365 40 84',
+      phoneClean: '+48243654084',
+      phoneMobile: '+48 517 487 041',
+      phoneMobileClean: '+48517487041',
+      description: 'Sekretariat oddziału w Płocku',
+      requiresConfirmation: false,
     },
     careers: {
-      department: 'Dział Kadr i Rekrutacji',
-      email: 'rekrutacja@chemorozruch.pl',
-      phone: '+48 33 847 43 00',
-      phoneClean: '+48338474300',
-      requiresConfirmation: true,
+      department: 'Dział Personalny',
+      email: 'dzialpersonalny@chemorozruch.pl',
+      phone: '+48 33 842 59 20, wew. 108',
+      phoneClean: '+48338425920',
+      requiresConfirmation: false,
     },
     privacyDPO: {
       department: 'Inspektor Ochrony Danych (RODO)',
       email: 'rodo@chemorozruch.pl',
-      phone: '+48 33 847 43 00',
-      phoneClean: '+48338474300',
-      requiresConfirmation: true,
+      phone: '+48 33 842 59 20',
+      phoneClean: '+48338425920',
+      requiresConfirmation: false,
     },
     whistleblower: {
       department: 'Zgłoszenia Wewnętrzne (Sygnaliści)',
       email: 'sygnalisci@chemorozruch.pl',
-      phone: '+48 33 847 43 00',
-      phoneClean: '+48338474300',
-      requiresConfirmation: true,
+      phone: '+48 33 842 59 20',
+      phoneClean: '+48338425920',
+      requiresConfirmation: false,
     },
   },
 };

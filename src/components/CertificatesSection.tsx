@@ -123,6 +123,8 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ curren
       ref={sectionRef}
       className="relative w-full bg-[#F6F6F3] text-slate-900 overflow-hidden py-24 sm:py-32 lg:py-36 border-t border-slate-200/60"
     >
+      <div id="certificates-section" className="absolute -top-20 left-0 w-px h-px opacity-0 pointer-events-none" />
+      <div id="certyfikaty" className="absolute -top-20 left-0 w-px h-px opacity-0 pointer-events-none" />
       {/* Background Architectural Framing Lines (Extremely subtle 3-4% opacity) */}
       <div className="absolute inset-0 pointer-events-none opacity-30 select-none">
         <div className="max-w-7xl mx-auto h-full px-6 sm:px-8 lg:px-12 flex justify-between">

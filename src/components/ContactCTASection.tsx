@@ -8,13 +8,11 @@ import {
   Mail, 
   Clock, 
   ArrowRight,
-  ChevronDown,
   Copy, 
   Check, 
   Briefcase, 
   FileSpreadsheet, 
-  Wrench, 
-  Truck
+  Wrench
 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -24,11 +22,10 @@ interface ContactCTASectionProps {
   onOpenLegal?: (doc: 'rodo' | 'sygnalisci') => void;
 }
 
-interface SpecialistContact {
-  role: Record<Language, string>;
-  name?: string;
-  email: string;
-  phone?: string;
+interface PhoneContact {
+  display: string;
+  href: string;
+  label?: Record<Language, string>;
 }
 
 interface DepartmentItem {
@@ -36,32 +33,73 @@ interface DepartmentItem {
   name: Record<Language, string>;
   description: Record<Language, string>;
   email: string;
-  phone: string;
-  phoneDisplay: string;
+  address?: Record<Language, string>;
+  phones: PhoneContact[];
   hours: Record<Language, string>;
   icon: React.ComponentType<{ className?: string }>;
   tag: Record<Language, string>;
-  specialists?: SpecialistContact[];
 }
 
 const DEPARTMENTS: DepartmentItem[] = [
   {
-    id: 'handlowy',
+    id: 'sekretariat',
     name: {
-      PL: 'Dział Handlowy i Ofertowanie',
-      EN: 'Commercial & Tendering Department',
-      DE: 'Vertrieb & Angebotserstellung',
-      UA: 'Комерційний відділ та Тендери',
+      PL: 'Sekretariat Zarządu (Oświęcim)',
+      EN: 'Executive Secretariat (Oświęcim)',
+      DE: 'Vorstandssekretariat (Oświęcim)',
+      UA: 'Секретаріат Керівництва (Освенцим)',
     },
     description: {
-      PL: 'Wyceny, zapytania ofertowe, przetargi i kalkulacje nowych realizacji.',
-      EN: 'Project estimations, RFQs, commercial tenders and new industrial realizations.',
-      DE: 'Kalkulationen, Ausschreibungen, Angebote und neue Industrieanlagen.',
-      UA: 'Розрахунки вартості, запити комерційних пропозицій, тендери та нові реалізації.',
+      PL: 'Siedziba główna, zarząd spółki, kancelaria ogólna, sprawy formalne i korespondencja.',
+      EN: 'Corporate headquarters, executive board, general registry, formal matters and official correspondence.',
+      DE: 'Hauptsitz, Unternehmensleitung, allgemeine Kanzlei und offizielle Korrespondenz.',
+      UA: 'Головний офіс, керівництво компанії, загальна канцелярія та офіційне листування.',
     },
-    email: 'oferty@chemorozruch.pl',
-    phone: '+48338474320',
-    phoneDisplay: '+48 33 847 43 20',
+    email: 'firma@chemorozruch.pl',
+    address: {
+      PL: 'ul. Lipowa 5, 32-600 Oświęcim, Polska',
+      EN: 'ul. Lipowa 5, 32-600 Oświęcim, Poland',
+      DE: 'ul. Lipowa 5, 32-600 Oświęcim, Polen',
+      UA: 'ul. Lipowa 5, 32-600 Oświęcim, Польща',
+    },
+    phones: [
+      { display: '+48 33 842 39 20', href: 'tel:+48338423920' },
+      { display: '+48 33 842 59 20', href: 'tel:+48338425920' },
+      { display: '+48 604 163 594', href: 'tel:+48604163594', label: { PL: 'Kom.', EN: 'Mob.', DE: 'Mobil', UA: 'Моб.' } },
+      { display: 'Fax: +48 33 842 34 91', href: 'tel:+48338423491', label: { PL: 'Fax', EN: 'Fax', DE: 'Fax', UA: 'Факс' } },
+    ],
+    hours: {
+      PL: 'Pn – Pt: 07:00 – 15:00',
+      EN: 'Mon – Fri: 07:00 – 15:00',
+      DE: 'Mo – Fr: 07:00 – 15:00',
+      UA: 'Пн – Пт: 07:00 – 15:00',
+    },
+    icon: Building2,
+    tag: {
+      PL: 'SEKRETARIAT ZARZĄDU',
+      EN: 'EXECUTIVE SECRETARIAT',
+      DE: 'VORSTANDSSEKRETARIAT',
+      UA: 'СЕКРЕТАРІАТ КЕРІВНИЦТВА',
+    },
+  },
+  {
+    id: 'handlowy',
+    name: {
+      PL: 'Dział Handlowy',
+      EN: 'Commercial Department',
+      DE: 'Vertriebsabteilung',
+      UA: 'Комерційний відділ',
+    },
+    description: {
+      PL: 'Wyceny konstrukcji stalowych, aparatury ciśnieniowej i rurociągów, zapytania ofertowe, przetargi i kalkulacje.',
+      EN: 'Steel structures estimation, pressure equipment & piping quotations, tenders, RFQs and commercial bids.',
+      DE: 'Kalkulation von Stahlbauprojekten, Druckapparaten und Rohrleitungen, Ausschreibungen und Angebote.',
+      UA: 'Розрахунки вартості металоконструкцій, ємностей під тиском і трубопроводів, комерційні пропозиції та тендери.',
+    },
+    email: 'dzialhandlowy@chemorozruch.pl',
+    phones: [
+      { display: '+48 33 842 59 20, wew. 137', href: 'tel:+48338425920' },
+    ],
     hours: {
       PL: 'Pn – Pt: 07:00 – 15:00',
       EN: 'Mon – Fri: 07:00 – 15:00',
@@ -70,51 +108,62 @@ const DEPARTMENTS: DepartmentItem[] = [
     },
     icon: FileSpreadsheet,
     tag: {
-      PL: 'WYCENY & OFERTY',
-      EN: 'TENDERS & RFQ',
-      DE: 'ANGEBOTE & VERTRIEB',
-      UA: 'ТЕНДЕРИ ТА ОЦІНКА',
+      PL: 'DZIAŁ HANDLOWY',
+      EN: 'COMMERCIAL DEPT',
+      DE: 'VERTRIEB',
+      UA: 'КОМЕРЦІЙНИЙ ВІДДІЛ',
     },
-    specialists: [
-      {
-        role: {
-          PL: 'Kierownik Działu Handlowego',
-          EN: 'Commercial Department Manager',
-          DE: 'Leiter Vertrieb & Kalkulation',
-          UA: 'Керівник комерційного відділу',
-        },
-        email: 'oferty@chemorozruch.pl',
-        phone: '+48 33 847 43 20',
-      },
-      {
-        role: {
-          PL: 'Specjalista ds. Ofertowania i Kosztorysowania',
-          EN: 'Cost Estimation & Bidding Specialist',
-          DE: 'Kalkulations- und Angebotsspezialist',
-          UA: 'Спеціаліст з кошторисів та пропозицій',
-        },
-        email: 'oferty@chemorozruch.pl',
-        phone: '+48 33 847 43 22',
-      },
-    ],
   },
   {
-    id: 'techniczny',
+    id: 'finansowy',
     name: {
-      PL: 'Dział Techniczny i Realizacji',
-      EN: 'Technical & Project Execution Department',
-      DE: 'Technische Abteilung & Montage',
-      UA: 'Технічний відділ та Реалізація',
+      PL: 'Dział Finansowy',
+      EN: 'Finance Department',
+      DE: 'Finanzabteilung',
+      UA: 'Фінансовий відділ',
     },
     description: {
-      PL: 'Sprawy techniczne dotyczące realizowanych instalacji, montażu aparatury i rurociągów oraz odbiorów UDT.',
-      EN: 'Technical engineering, mechanical assembly, process piping and technical inspections.',
-      DE: 'Technische Betreuung von Industrieanlagen, Rohrleitungsbau, Apparate und TÜV/UDT-Abnahmen.',
-      UA: 'Технічні питання щодо монтажу обладнання, трубопроводів та нагляду UDT.',
+      PL: 'Rozliczenia finansowe, faktury, księgowość i sprawy płatności.',
+      EN: 'Financial accounting, invoicing, settlements and payment procedures.',
+      DE: 'Finanzbuchhaltung, Rechnungsstellung und Zahlungsverkehr.',
+      UA: 'Фінансовий облік, виставлення рахунків, взаєморозрахунки та платежі.',
     },
-    email: 'realizacje@chemorozruch.pl',
-    phone: '+48338474340',
-    phoneDisplay: '+48 33 847 43 40',
+    email: 'dzialfinansowy@chemorozruch.pl',
+    phones: [
+      { display: '+48 33 842 59 20, wew. 114', href: 'tel:+48338425920' },
+    ],
+    hours: {
+      PL: 'Pn – Pt: 07:00 – 15:00',
+      EN: 'Mon – Fri: 07:00 – 15:00',
+      DE: 'Mo – Fr: 07:00 – 15:00',
+      UA: 'Пн – Пт: 07:00 – 15:00',
+    },
+    icon: Briefcase,
+    tag: {
+      PL: 'DZIAŁ FINANSOWY',
+      EN: 'FINANCE DEPT',
+      DE: 'FINANZEN',
+      UA: 'ФІНАНСОВИЙ ВІДДІЛ',
+    },
+  },
+  {
+    id: 'personalny',
+    name: {
+      PL: 'Dział Personalny',
+      EN: 'HR & Personnel Department',
+      DE: 'Personalabteilung (HR)',
+      UA: 'Відділ кадрів',
+    },
+    description: {
+      PL: 'Sprawy pracownicze, rekrutacja monterów i spawaczy, szkolenia oraz uprawnienia zawodowe.',
+      EN: 'Human resources, recruitment of welders and fitters, professional trainings and certifications.',
+      DE: 'Personalwesen, Rekrutierung von Schweißern und Monteuren sowie Qualifikationen.',
+      UA: 'Кадрові питання, працевлаштування монтажників і зварювальників, кваліфікації та навчання.',
+    },
+    email: 'dzialpersonalny@chemorozruch.pl',
+    phones: [
+      { display: '+48 33 842 59 20, wew. 108', href: 'tel:+48338425920' },
+    ],
     hours: {
       PL: 'Pn – Pt: 07:00 – 15:00',
       EN: 'Mon – Fri: 07:00 – 15:00',
@@ -123,157 +172,37 @@ const DEPARTMENTS: DepartmentItem[] = [
     },
     icon: Wrench,
     tag: {
-      PL: 'INŻYNIERIA & MONTAŻ',
-      EN: 'ENGINEERING & ASSEMBLY',
-      DE: 'ENGINEERING & MONTAGE',
-      UA: 'ІНЖЕНЕРІЯ ТА МОНТАЖ',
+      PL: 'DZIAŁ PERSONALNY',
+      EN: 'HR & PERSONNEL',
+      DE: 'PERSONALWESEN',
+      UA: 'ВІДДІЛ КАДРІВ',
     },
-    specialists: [
-      {
-        role: {
-          PL: 'Główny Inżynier / Kierownik Realizacji',
-          EN: 'Chief Engineer / Project Execution Manager',
-          DE: 'Chefingenieur / Montageleiter',
-          UA: 'Головний інженер / Керівник реалізації',
-        },
-        email: 'realizacje@chemorozruch.pl',
-        phone: '+48 33 847 43 40',
-      },
-      {
-        role: {
-          PL: 'Inżynieria Spawalnictwa i Kontrola NDT',
-          EN: 'Welding Engineering & NDT Quality Control',
-          DE: 'Schweißfachingenieur & ZfP-Prüfung',
-          UA: 'Інженерія зварювання та контроль NDT',
-        },
-        email: 'techniczny@chemorozruch.pl',
-        phone: '+48 33 847 43 45',
-      },
-    ],
-  },
-  {
-    id: 'centrala',
-    name: {
-      PL: 'Sekretariat / Centrala Zarządu',
-      EN: 'Secretariat / Executive Office',
-      DE: 'Sekretariat / Hauptverwaltung',
-      UA: 'Секретаріат / Головний офіс',
-    },
-    description: {
-      PL: 'Sprawy ogólne, kontakt z firmą, zarząd, kancelaria i korespondencja.',
-      EN: 'General corporate matters, board affairs, registry and correspondence.',
-      DE: 'Allgemeine Angelegenheiten, Unternehmensleitung, Vorstand und Korrespondenz.',
-      UA: 'Загальні питання, зв’язок з компанією, керівництво та канцелярія.',
-    },
-    email: 'biuro@chemorozruch.pl',
-    phone: '+48338474300',
-    phoneDisplay: '+48 33 847 43 00',
-    hours: {
-      PL: 'Pn – Pt: 07:00 – 15:00',
-      EN: 'Mon – Fri: 07:00 – 15:00',
-      DE: 'Mo – Fr: 07:00 – 15:00',
-      UA: 'Пн – Пт: 07:00 – 15:00',
-    },
-    icon: Building2,
-    tag: {
-      PL: 'CENTRALA & ZARZĄD',
-      EN: 'HQ & BOARD',
-      DE: 'HAUPTSITZ & VORSTAND',
-      UA: 'ГОЛОВНИЙ ОФІС',
-    },
-    specialists: [
-      {
-        role: {
-          PL: 'Sekretariat Zarządu & Kancelaria',
-          EN: 'Executive Secretariat & General Registry',
-          DE: 'Vorstandssekretariat & Poststelle',
-          UA: 'Секретаріат керівництва та канцелярія',
-        },
-        email: 'biuro@chemorozruch.pl',
-        phone: '+48 33 847 43 00',
-      },
-      {
-        role: {
-          PL: 'Dział Finansowo-Księgowy',
-          EN: 'Finance & Accounting Department',
-          DE: 'Finanz- und Rechnungswesen',
-          UA: 'Фінансово-бухгалтерський відділ',
-        },
-        email: 'ksiegowosc@chemorozruch.pl',
-        phone: '+48 33 847 43 10',
-      },
-    ],
-  },
-  {
-    id: 'zaopatrzenie',
-    name: {
-      PL: 'Dział Zaopatrzenia i Logistyki',
-      EN: 'Procurement & Logistics Department',
-      DE: 'Einkauf & Materiallogistik',
-      UA: 'Відділ постачання та Логістики',
-    },
-    description: {
-      PL: 'Dostawy certyfikowanych materiałów hutniczych, armatury przemysłowej i transport wielkogabarytowy.',
-      EN: 'Certified metallurgical supplies, industrial valves, heavy haulage and freight.',
-      DE: 'Einkauf von Stahlwerkstoffen, Industriearmaturen und Schwerlasttransporte.',
-      UA: 'Постачання сертифікованого металу, промислової арматури та спецтранспорт.',
-    },
-    email: 'zaopatrzenie@chemorozruch.pl',
-    phone: '+48338474330',
-    phoneDisplay: '+48 33 847 43 30',
-    hours: {
-      PL: 'Pn – Pt: 07:00 – 14:30',
-      EN: 'Mon – Fri: 07:00 – 14:30',
-      DE: 'Mo – Fr: 07:00 – 14:30',
-      UA: 'Пн – Пт: 07:00 – 14:30',
-    },
-    icon: Truck,
-    tag: {
-      PL: 'DOSTAWY & SPEDYCJA',
-      EN: 'SUPPLY & LOGISTICS',
-      DE: 'EINKAUF & LOGISTIK',
-      UA: 'ПОСТАЧАННЯ ТА ЛОГІСТИКА',
-    },
-    specialists: [
-      {
-        role: {
-          PL: 'Dział Zakupów i Kontraktacji Materiałów',
-          EN: 'Material Purchasing & Contracting',
-          DE: 'Einkauf & Materialdisposition',
-          UA: 'Відділ закупівель та контрактування',
-        },
-        email: 'zaopatrzenie@chemorozruch.pl',
-        phone: '+48 33 847 43 30',
-      },
-      {
-        role: {
-          PL: 'Magazyn Główny & Przyjęcia Dostaw',
-          EN: 'Central Warehouse & Inbound Logistics',
-          DE: 'Hauptlager & Warenannahme',
-          UA: 'Головний склад та прийом вантажів',
-        },
-        email: 'magazyn@chemorozruch.pl',
-        phone: '+48 33 847 43 35',
-      },
-    ],
   },
   {
     id: 'plock',
     name: {
-      PL: 'Oddział Realizacyjny Płock',
-      EN: 'Płock Operational Branch',
+      PL: 'Oddział w Płocku',
+      EN: 'Płock Branch',
       DE: 'Niederlassung Płock',
-      UA: 'Відділення Плоцьк',
+      UA: 'Відділення в Плоцьку',
     },
     description: {
-      PL: 'Realizacja projektów i montażu przemysłowego na terenie kompleksu rafineryjnego PKN ORLEN i Polski centralnej.',
-      EN: 'Industrial and petrochemical installation works within the PKN ORLEN refining complex and Central Poland.',
-      DE: 'Montage- und Instandhaltungsprojekte auf dem Gelände des Raffineriekomplexes PKN ORLEN und Zentralpolen.',
-      UA: 'Промисловий монтаж на території нафтопереробного комплексу PKN ORLEN та центральної Польщі.',
+      PL: 'Sekretariat oddziału realizacyjnego przy kompleksie rafineryjno-petrochemicznym w Płocku.',
+      EN: 'Operational branch secretariat stationed at the refining and petrochemical complex in Płock.',
+      DE: 'Sekretariat der operativen Niederlassung am Raffinerie- und Petrochemiekomplex in Płock.',
+      UA: 'Секретаріат виробничого відділення при нафтохімічному комплексі в Плоцьку.',
     },
     email: 'plock@chemorozruch.pl',
-    phone: '+48243652400',
-    phoneDisplay: '+48 24 365 24 00',
+    address: {
+      PL: 'ul. Witolda Zglenickiego 50 F, 09-400 Płock, Polska',
+      EN: 'ul. Witolda Zglenickiego 50 F, 09-400 Płock, Poland',
+      DE: 'ul. Witolda Zglenickiego 50 F, 09-400 Płock, Polen',
+      UA: 'ul. Witolda Zglenickiego 50 F, 09-400 Płock, Польща',
+    },
+    phones: [
+      { display: '+48 24 365 40 84', href: 'tel:+48243654084' },
+      { display: '+48 517 487 041', href: 'tel:+48517487041', label: { PL: 'Kom.', EN: 'Mob.', DE: 'Mobil', UA: 'Моб.' } },
+    ],
     hours: {
       PL: 'Pn – Pt: 07:00 – 15:00',
       EN: 'Mon – Fri: 07:00 – 15:00',
@@ -282,28 +211,15 @@ const DEPARTMENTS: DepartmentItem[] = [
     },
     icon: Building2,
     tag: {
-      PL: 'ODDZIAŁ PŁOCK',
+      PL: 'ODDZIAŁ W PŁOCKU',
       EN: 'PŁOCK BRANCH',
-      DE: 'FILIALE PŁOCK',
-      UA: 'ВІДДІЛЕННЯ ПЛОЦЬК',
+      DE: 'NIEDERLASSUNG PŁOCK',
+      UA: 'ВІДДІЛЕННЯ В ПЛОЦЬКУ',
     },
-    specialists: [
-      {
-        role: {
-          PL: 'Kierownik Oddziału Płock',
-          EN: 'Płock Branch Operations Manager',
-          DE: 'Niederlassungsleiter Płock',
-          UA: 'Керівник відділення Плоцьк',
-        },
-        email: 'plock@chemorozruch.pl',
-        phone: '+48 24 365 24 00',
-      },
-    ],
   },
 ];
 
 export const ContactCTASection: React.FC<ContactCTASectionProps> = ({ currentLang }) => {
-  const [expandedDept, setExpandedDept] = useState<string | null>(null);
   const [copiedText, setCopiedText] = useState<string | null>(null);
 
   const sectionRef = useRef<HTMLElement>(null);
@@ -356,12 +272,6 @@ export const ContactCTASection: React.FC<ContactCTASectionProps> = ({ currentLan
     setTimeout(() => setCopiedText(null), 2200);
   };
 
-  const toggleExpand = (id: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setExpandedDept((prev) => (prev === id ? null : id));
-  };
-
   const labels = {
     eyebrow: {
       PL: 'KONTAKT & DZIAŁY',
@@ -393,18 +303,6 @@ export const ContactCTASection: React.FC<ContactCTASectionProps> = ({ currentLan
       DE: 'Telefon',
       UA: 'Телефон',
     },
-    detailsBtn: {
-      PL: 'Szczegóły działu',
-      EN: 'Department details',
-      DE: 'Abteilungsdetails',
-      UA: 'Деталі відділу',
-    },
-    closeDetailsBtn: {
-      PL: 'Zwiń szczegóły',
-      EN: 'Hide details',
-      DE: 'Details ausblenden',
-      UA: 'Згорнути деталі',
-    },
   };
 
   return (
@@ -413,6 +311,8 @@ export const ContactCTASection: React.FC<ContactCTASectionProps> = ({ currentLan
       ref={sectionRef}
       className="relative w-full bg-[#FAF9F5] text-slate-900 overflow-hidden py-16 sm:py-20 lg:py-24 border-t border-slate-200"
     >
+      <div id="kontakt" className="absolute -top-20 left-0 w-px h-px opacity-0 pointer-events-none" />
+      <div id="contact" className="absolute -top-20 left-0 w-px h-px opacity-0 pointer-events-none" />
       {/* Background Architectural Subtle Grid Lines */}
       <div className="absolute inset-0 pointer-events-none opacity-30 select-none">
         <div className="max-w-7xl mx-auto h-full px-6 sm:px-8 lg:px-12 flex justify-between">
@@ -447,16 +347,13 @@ export const ContactCTASection: React.FC<ContactCTASectionProps> = ({ currentLan
           className="border-t border-slate-200 divide-y divide-slate-200/90 mb-16 sm:mb-20"
         >
           {DEPARTMENTS.map((dept) => {
-            const isExpanded = expandedDept === dept.id;
-            const hasSpecialists = Boolean(dept.specialists && dept.specialists.length > 0);
-
             return (
               <div
                 key={dept.id}
                 className="group relative transition-colors duration-200 hover:bg-white/70"
               >
                 {/* Main Row */}
-                <div className="py-6 sm:py-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                <div className="py-6 sm:py-8 flex flex-col lg:flex-row lg:items-start justify-between gap-6">
                   
                   {/* Left Column: Department info & Credentials */}
                   <div className="flex-1 min-w-0 pr-0 lg:pr-8">
@@ -472,7 +369,7 @@ export const ContactCTASection: React.FC<ContactCTASectionProps> = ({ currentLan
                       </span>
                     </div>
 
-                    {/* Department Title (Shifts 3-5px on desktop hover) */}
+                    {/* Department Title */}
                     <h3 className="font-poppins font-bold text-xl sm:text-2xl lg:text-[26px] text-slate-950 tracking-tight transition-transform duration-200 transform group-hover:translate-x-1.5">
                       <a
                         href={`mailto:${dept.email}`}
@@ -488,7 +385,15 @@ export const ContactCTASection: React.FC<ContactCTASectionProps> = ({ currentLan
                       {dept.description[currentLang]}
                     </p>
 
-                    {/* Contact Credentials (Email & Phone) */}
+                    {/* Address if specified */}
+                    {dept.address && (
+                      <div className="mt-3 flex items-center gap-2 text-sm font-sans text-slate-700">
+                        <Building2 className="w-4 h-4 text-slate-400 flex-shrink-0" />
+                        <span>{dept.address[currentLang]}</span>
+                      </div>
+                    )}
+
+                    {/* Contact Credentials (Email & Phones) */}
                     <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-mono">
                       
                       {/* Email Link */}
@@ -516,36 +421,38 @@ export const ContactCTASection: React.FC<ContactCTASectionProps> = ({ currentLan
                         </button>
                       </div>
 
-                      {/* Phone Link */}
-                      <div className="inline-flex items-center gap-2 min-h-[44px]">
-                        <a
-                          href={`tel:${dept.phone}`}
-                          className="inline-flex items-center gap-2 text-slate-700 hover:text-slate-950 font-medium transition-colors py-1"
-                          aria-label={`Telefon: ${dept.phoneDisplay}`}
-                        >
-                          <Phone className="w-4 h-4 text-slate-400 group-hover:text-red-500 transition-colors flex-shrink-0" />
-                          <span>{dept.phoneDisplay}</span>
-                        </a>
-                        <button
-                          type="button"
-                          onClick={(e) => handleCopy(dept.phoneDisplay, `${dept.id}-phone`, e)}
-                          className="p-1.5 text-slate-400 hover:text-slate-800 rounded transition-colors cursor-pointer"
-                          title="Kopiuj telefon"
-                          aria-label="Kopiuj telefon"
-                        >
-                          {copiedText === `${dept.id}-phone` ? (
-                            <Check className="w-3.5 h-3.5 text-emerald-600" />
-                          ) : (
-                            <Copy className="w-3.5 h-3.5" />
-                          )}
-                        </button>
-                      </div>
+                      {/* Phone Links */}
+                      {dept.phones.map((p, pIdx) => (
+                        <div key={pIdx} className="inline-flex items-center gap-2 min-h-[44px]">
+                          <a
+                            href={p.href}
+                            className="inline-flex items-center gap-2 text-slate-700 hover:text-slate-950 font-medium transition-colors py-1"
+                            aria-label={`Telefon: ${p.display}`}
+                          >
+                            <Phone className="w-4 h-4 text-slate-400 group-hover:text-red-500 transition-colors flex-shrink-0" />
+                            <span>{p.display}</span>
+                          </a>
+                          <button
+                            type="button"
+                            onClick={(e) => handleCopy(p.display, `${dept.id}-phone-${pIdx}`, e)}
+                            className="p-1.5 text-slate-400 hover:text-slate-800 rounded transition-colors cursor-pointer"
+                            title="Kopiuj telefon"
+                            aria-label="Kopiuj telefon"
+                          >
+                            {copiedText === `${dept.id}-phone-${pIdx}` ? (
+                              <Check className="w-3.5 h-3.5 text-emerald-600" />
+                            ) : (
+                              <Copy className="w-3.5 h-3.5" />
+                            )}
+                          </button>
+                        </div>
+                      ))}
 
                     </div>
 
                   </div>
 
-                  {/* Right Column: Actions (Mailto button + Optional Expand) */}
+                  {/* Right Column: Actions (Mailto button) */}
                   <div className="flex items-center gap-3 self-start lg:self-center flex-shrink-0 pt-2 lg:pt-0">
                     
                     {/* Action button: Napisz e-mail → */}
@@ -558,76 +465,9 @@ export const ContactCTASection: React.FC<ContactCTASectionProps> = ({ currentLan
                       <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-200" />
                     </a>
 
-                    {/* Optional Expand Toggle (if specialists exist) */}
-                    {hasSpecialists && (
-                      <button
-                        type="button"
-                        onClick={(e) => toggleExpand(dept.id, e)}
-                        className={`inline-flex items-center justify-center p-3 min-h-[46px] min-w-[46px] rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-900 transition-all cursor-pointer ${
-                          isExpanded ? 'bg-slate-100 text-slate-900 border-slate-300' : ''
-                        }`}
-                        title={isExpanded ? labels.closeDetailsBtn[currentLang] : labels.detailsBtn[currentLang]}
-                        aria-label={isExpanded ? labels.closeDetailsBtn[currentLang] : labels.detailsBtn[currentLang]}
-                        aria-expanded={isExpanded}
-                      >
-                        <ChevronDown
-                          className={`w-4 h-4 transition-transform duration-200 ${
-                            isExpanded ? 'rotate-180 text-red-600' : ''
-                          }`}
-                        />
-                      </button>
-                    )}
-
                   </div>
 
                 </div>
-
-                {/* Collapsible Specialists Section */}
-                {hasSpecialists && isExpanded && (
-                  <div className="pb-6 pt-2 pl-0 sm:pl-4 border-t border-slate-100 animate-fade-in">
-                    <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/80 border border-slate-200/80 space-y-3">
-                      <span className="text-[11px] font-mono font-bold tracking-wider text-slate-400 uppercase block mb-1">
-                        {currentLang === 'PL'
-                          ? 'Bezpośrednie kontakty specjalistyczne:'
-                          : currentLang === 'EN'
-                          ? 'Direct specialist contacts:'
-                          : currentLang === 'DE'
-                          ? 'Direkte Fachkontakte:'
-                          : 'Прямі контакти спеціалістів:'}
-                      </span>
-                      
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {dept.specialists?.map((spec, idx) => (
-                          <div key={idx} className="p-3.5 rounded-xl bg-white border border-slate-200/60 text-xs font-mono space-y-1.5">
-                            <span className="font-bold text-slate-900 font-sans block text-sm">
-                              {spec.role[currentLang]}
-                            </span>
-                            <div className="flex items-center gap-2">
-                              <Mail className="w-3.5 h-3.5 text-red-600 flex-shrink-0" />
-                              <a
-                                href={`mailto:${spec.email}`}
-                                className="text-slate-700 hover:text-red-600 underline font-semibold transition-colors"
-                              >
-                                {spec.email}
-                              </a>
-                            </div>
-                            {spec.phone && (
-                              <div className="flex items-center gap-2">
-                                <Phone className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
-                                <a
-                                  href={`tel:${spec.phone.replace(/\s+/g, '')}`}
-                                  className="text-slate-600 hover:text-slate-900 transition-colors"
-                                >
-                                  {spec.phone}
-                                </a>
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
 
               </div>
             );

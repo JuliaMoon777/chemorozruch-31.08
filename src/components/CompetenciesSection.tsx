@@ -569,9 +569,13 @@ export const CompetenciesSection: React.FC<CompetenciesSectionProps> = ({
 
   return (
     <section
-      id="kompetencje"
+      id="competencies-section"
       className="relative w-full bg-[#FAF9F5] text-slate-900 py-16 sm:py-24 lg:py-28 overflow-hidden border-t border-slate-200"
     >
+      {/* Anchor Aliases for deep links */}
+      <div id="kompetencje" className="absolute -top-20 left-0 w-px h-px opacity-0 pointer-events-none" />
+      <div id="oferta" className="absolute -top-20 left-0 w-px h-px opacity-0 pointer-events-none" />
+
       {/* Background Subtle Technical Gridlines */}
       <div className="absolute inset-0 pointer-events-none opacity-25 select-none">
         <div className="max-w-7xl mx-auto h-full px-6 sm:px-8 lg:px-12 flex justify-between">

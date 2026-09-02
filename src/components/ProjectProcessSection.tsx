@@ -200,6 +200,8 @@ export const ProjectProcessSection: React.FC<ProjectProcessSectionProps> = ({ cu
       ref={sectionRef}
       className="relative w-full bg-[#FAF9F5] text-slate-900 overflow-hidden border-t border-slate-200/60"
     >
+      <div id="process-section" className="absolute -top-20 left-0 w-px h-px opacity-0 pointer-events-none" />
+      <div id="proces" className="absolute -top-20 left-0 w-px h-px opacity-0 pointer-events-none" />
       {/* Background Architectural Grid (Subtle border lines on outer edges only, never cutting through central cards) */}
       <div className="absolute inset-0 pointer-events-none opacity-20 select-none">
         <div className="max-w-7xl mx-auto h-full px-6 sm:px-8 lg:px-12 flex justify-between">

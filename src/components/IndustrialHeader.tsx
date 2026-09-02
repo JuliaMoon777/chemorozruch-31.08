@@ -79,6 +79,9 @@ export const IndustrialHeader: React.FC<IndustrialHeaderProps> = ({
         top: offsetPosition,
         behavior: 'smooth',
       });
+    } else {
+      const homePath = buildLocalizedPath(undefined, currentLang);
+      window.location.href = `${homePath}#${id}`;
     }
   };
 
@@ -334,18 +337,24 @@ export const IndustrialHeader: React.FC<IndustrialHeaderProps> = ({
             {/* Quick Contact Box in Mobile Menu */}
             <div className="bg-white/90 backdrop-blur-md rounded-2xl p-5 border border-slate-200/80 shadow-md text-xs text-slate-700 space-y-3">
               <div className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">
-                Szybki kontakt z centralą
+                {currentLang === 'PL'
+                  ? 'Szybki kontakt z centralą'
+                  : currentLang === 'EN'
+                  ? 'Quick headquarters contact'
+                  : currentLang === 'DE'
+                  ? 'Direkter Kontakt zur Zentrale'
+                  : 'Швидкий зв’язок з офісом'}
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-red-600 shrink-0" />
-                <a href="tel:+48338474300" className="font-semibold hover:text-red-600 transition-colors">
-                  +48 33 847 43 00
+                <a href="tel:+48338425920" className="font-semibold hover:text-red-600 transition-colors">
+                  +48 33 842 59 20
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-red-600 shrink-0" />
-                <a href="mailto:sekretariat@chemorozruch.pl" className="font-semibold hover:text-red-600 transition-colors">
-                  sekretariat@chemorozruch.pl
+                <a href="mailto:firma@chemorozruch.pl" className="font-semibold hover:text-red-600 transition-colors">
+                  firma@chemorozruch.pl
                 </a>
               </div>
             </div>

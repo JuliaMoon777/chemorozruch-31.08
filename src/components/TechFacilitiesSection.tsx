@@ -191,6 +191,8 @@ export const TechFacilitiesSection: React.FC<TechFacilitiesSectionProps> = ({ cu
       ref={sectionRef}
       className="relative w-full bg-[#F4F4F0] text-slate-900 pt-28 pb-36 lg:pt-36 lg:pb-44 overflow-hidden border-t border-slate-300/40"
     >
+      <div id="tech-facilities-section" className="absolute -top-20 left-0 w-px h-px opacity-0 pointer-events-none" />
+      <div id="zaplecze" className="absolute -top-20 left-0 w-px h-px opacity-0 pointer-events-none" />
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* 1. SECTION INTRO (Magazine Editorial Header with Generous Whitespace) */}
         <div className="max-w-3xl mb-16 lg:mb-24">
