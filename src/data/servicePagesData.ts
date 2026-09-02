@@ -578,7 +578,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Kompleksowe postoje remontowe (Turnarounds)',
             description: 'Zarządzanie całością prac mechanicznych w trakcie planowanych postojów technologicznych rafinerii, elektrociepłowni i zakładów chemicznych.',
-            details: ['Praca wielozmianowa', 'Koordynacja do 150 specjalistów na obiekcie', 'Ścisła kontrola harmonogramu CPM'],
+            details: ['Praca wielozmianowa', 'Koordynacja zespołów wykonawczych na obiekcie', 'Ścisła kontrola harmonogramu CPM'],
           },
           {
             title: 'Wymiana i modernizacja rurociągów przemysłowych',
@@ -604,7 +604,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Turnaround & Shutdown Management',
             description: 'Complete mechanical management during scheduled refinery, chemical complex, and power station turnarounds.',
-            details: ['Multi-shift execution', 'Mobilization of up to 150 site technicians', 'Strict CPM schedule tracking'],
+            details: ['Multi-shift execution', 'Mobilization of certified site specialist teams', 'Strict CPM schedule tracking'],
           },
           {
             title: 'High-Pressure Piping Replacement & Rerouting',
@@ -630,7 +630,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Turnaround- und Stillstandsmanagement',
             description: 'Vollständige Abwicklung aller mechanischen Gewerke bei geplanten Generalstillständen.',
-            details: ['Mehrschichtbetrieb', 'Bis zu 150 Fachkräfte vor Ort', 'Minutengenaue Terminverfolgung'],
+            details: ['Mehrschichtbetrieb', 'Mobilisierung qualifizierter Fachteams vor Ort', 'Minutengenaue Terminverfolgung'],
           },
           {
             title: 'Rohrleitungserneuerung & Umverlegung',
@@ -656,7 +656,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Управління капітальними зупинками (Turnarounds)',
             description: 'Виконання комплексу механічних робіт під час планових зупинок нафтохімічних та енергетичних підприємств.',
-            details: ['Цілодобовий змінний графік', 'Мобілізація до 150 фахівців', 'Суворий контроль критичного шляху'],
+            details: ['Цілодобовий змінний графік', 'Мобілізація кваліфікованих фахівців', 'Суворий контроль критичного шляху'],
           },
           {
             title: 'Заміна та модернізація технологічних трубопроводів',
@@ -806,7 +806,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Generalny postój remontowy instalacji reformingu',
             clientSector: 'Koncern Naftowy / Petrochemiczny',
-            scope: 'Wymiana 1800 m rurociągów stopowych P91 i 1.4404, rewizja 14 wymienników ciepła i montaż nowej armatury wysokociśnieniowej w reżimie 28 dni.',
+            scope: 'Wymiana rurociągów stopowych P91 i 1.4404, rewizja baterii wymienników ciepła i montaż nowej armatury wysokociśnieniowej w reżimie planowanego postoju.',
           },
           {
             title: 'Modernizacja instalacji kwasu azotowego i nawozów',
@@ -814,7 +814,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
             scope: 'Wymiana wieży absorpcyjnej i rurociągów kwasu ze stali 1.4541, próby ciśnieniowe i bezusterkowy rozruch technologiczny.',
           },
           {
-            title: 'Remont kapitalny rurociągów pary świeżej bloku 200 MW',
+            title: 'Remont kapitalny rurociągów pary świeżej bloku energetycznego',
             clientSector: 'Elektrociepłownia Zawodowa',
             scope: 'Wymiana rurociągów pary świeżej i wtórnej, montaż nowych zawieszeń sprężynowych, badania NDT 100% spoin i odbiór UDT.',
           },
@@ -826,7 +826,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Catalytic Reforming Unit Turnaround Overhaul',
             clientSector: 'Major Oil & Gas Refining Complex',
-            scope: 'Replacement of 1,800m P91 & 316L alloy piping, overhaul of 14 heat exchangers, and new valve installs within a strict 28-day shutdown.',
+            scope: 'Replacement of P91 & 316L alloy piping, overhaul of heat exchanger batteries, and new valve installs within scheduled turnaround window.',
           },
           {
             title: 'Nitric Acid and Fertilizer Unit Revamp',
@@ -834,7 +834,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
             scope: 'Absorption column section replacement, 1.4541 acid line installation, hydrostatic testing, and zero-defect startup.',
           },
           {
-            title: '200 MW Power Unit Steam Lines Overhaul',
+            title: 'Power Unit Steam Lines Overhaul',
             clientSector: 'Combined Heat & Power Station',
             scope: 'Replacement of high-temperature steam lines, installation of constant load spring supports, 100% NDT inspection, and UDT acceptance.',
           },
@@ -846,7 +846,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Generalstillstand der Reformeranlage',
             clientSector: 'Erdölraffinerie',
-            scope: 'Austausch von 1.800 m P91- und 1.4404-Rohrleitungen, Revision von 14 Wärmetauschern innerhalb von 28 Tagen.',
+            scope: 'Austausch von P91- und 1.4404-Rohrleitungen, Revision von Wärmetauschern im Rahmen des geplanten Stillstands.',
           },
           {
             title: 'Modernisierung der Salpetersäureanlage',
@@ -854,7 +854,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
             scope: 'Austausch von Kolonnensegmenten, Verlegung von Säureleitungen aus 1.4541 und Druckprüfung.',
           },
           {
-            title: 'Generalüberholung der Frischdampfleitungen im 200-MW-Block',
+            title: 'Generalüberholung der Frischdampfleitungen im Kraftwerksblock',
             clientSector: 'Kraftwerk',
             scope: 'Erneuerung der Hochtemperaturdampfleitungen, Konstanthängerjustierung und 100% ZfP-Prüfung.',
           },
@@ -866,7 +866,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
           {
             title: 'Капітальний ремонт установки риформінгу',
             clientSector: 'Нафтопереробний завод',
-            scope: 'Заміна 1800 м трубопроводів P91 та 1.4404, ревізія 14 теплообмінників за 28 днів зупинки.',
+            scope: 'Заміна трубопроводів P91 та 1.4404, ревізія теплообмінників у терміни планової зупинки.',
           },
           {
             title: 'Модернізація виробництва азотної кислоти',
@@ -874,7 +874,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
             scope: 'Заміна сегментів абсорбційної колони та кислотопроводів зі сталі 1.4541 з прийомкою UDT.',
           },
           {
-            title: 'Ремонт паропроводів енергоблоку 200 МВт',
+            title: 'Ремонт паропроводів енергоблоку ТЕЦ',
             clientSector: 'Теплоелектроцентраль',
             scope: 'Заміна високотемпературних паропроводів, регулювання пружинних підвісок та 100% NDT контроль.',
           },

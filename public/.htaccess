@@ -1,34 +1,104 @@
-RewriteEngine On
+# ----------------------------------------------------------------------
+# Apache Production Configuration for chemorozruch.pl (Strefa.pl / Apache)
+# ----------------------------------------------------------------------
 
-# HTTPS enforcement
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Ensure DirectoryIndex checks index.html
+DirectoryIndex index.html
 
-# Confirmed Legacy 301 Redirects
-Redirect 301 /o-firmie /#company-discovery-section
-Redirect 301 /oferta /#competencies-section
-Redirect 301 /certyfikaty /#certificates-section
-Redirect 301 /realizacje /#realizations-section
-Redirect 301 /kontakt /#kontakt-cta
-
-# Browser Caching
-<IfModule mod_expires.c>
-  ExpiresActive On
-  ExpiresByType image/jpg "access plus 1 year"
-  ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType image/gif "access plus 1 year"
-  ExpiresByType image/png "access plus 1 year"
-  ExpiresByType image/webp "access plus 1 year"
-  ExpiresByType image/svg+xml "access plus 1 year"
-  ExpiresByType text/css "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
-  ExpiresByType font/woff2 "access plus 1 year"
+# Options
+<IfModule mod_dir.c>
+  DirectorySlash On
 </IfModule>
 
-# Serve existing static files and prerendered HTML directly
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
+<IfModule mod_rewrite.c>
+  RewriteEngine On
 
-# SPA Fallback for client-side routing
-RewriteRule ^(.*)$ /index.html [L]
+  # 1. Canonical HTTPS Enforcement
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # 2. Canonical Domain: www.chemorozruch.pl -> chemorozruch.pl
+  RewriteCond %{HTTP_HOST} ^www\.chemorozruch\.pl$ [NC]
+  RewriteRule ^(.*)$ https://chemorozruch.pl/$1 [L,R=301]
+
+  # 3. Confirmed Legacy 301 Redirects to Section Anchors
+  RewriteRule ^o-firmie/?$ /#company-discovery-section [R=301,L,NE]
+  RewriteRule ^oferta/?$ /#competencies-section [R=301,L,NE]
+  RewriteRule ^certyfikaty/?$ /#certificates-section [R=301,L,NE]
+  RewriteRule ^realizacje/?$ /#realizations-section [R=301,L,NE]
+  RewriteRule ^kontakt/?$ /#kontakt-cta [R=301,L,NE]
+
+  # 4. Direct Serving of Existing Files and Prerendered Static Directories
+  # If the exact requested file exists (e.g. .css, .js, .svg, .jpg, .webp, .xml, .txt, .html), serve directly
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # If the requested path is an existing directory with index.html, serve directly
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^ - [L]
+
+  # If the request matches a folder without trailing slash containing index.html (e.g. /rodo -> /rodo/index.html)
+  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+  RewriteRule ^(.*)/?$ /$1/index.html [L]
+
+  # 5. SPA Fallback for dynamic client-side routes only when no physical file/directory exists
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Browser Caching & Expiration Rules (Safe Caching)
+# ----------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 day"
+
+  # HTML pages - Never cache stale HTML so prerendered updates are immediate
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/xml "access plus 1 hour"
+  ExpiresByType application/xml "access plus 1 hour"
+  ExpiresByType application/json "access plus 1 hour"
+
+  # Public non-hashed images and brand assets - Safe 1-week caching (NOT 1 year)
+  ExpiresByType image/jpg "access plus 1 week"
+  ExpiresByType image/jpeg "access plus 1 week"
+  ExpiresByType image/png "access plus 1 week"
+  ExpiresByType image/webp "access plus 1 week"
+  ExpiresByType image/svg+xml "access plus 1 week"
+
+  # Fonts - 1 month
+  ExpiresByType font/woff2 "access plus 1 month"
+  ExpiresByType font/woff "access plus 1 month"
+  ExpiresByType font/ttf "access plus 1 month"
+</IfModule>
+
+# ----------------------------------------------------------------------
+# HTTP Headers (Security & Fine-Grained Cache-Control)
+# ----------------------------------------------------------------------
+<IfModule mod_headers.c>
+  # HTML files must always revalidate
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  # Vite hashed assets (/assets/*) are immutable and can be safely cached long-term
+  <FilesMatch "^assets/.*\.(js|css|woff2|woff|ttf)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Security headers
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Compression (Gzip / Deflate)
+# ----------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
+</IfModule>

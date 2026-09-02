@@ -8,10 +8,24 @@ import { SEOHead } from './components/SEOHead';
 
 // 1. Dedicated Service SEO Landing Pages
 const SERVICE_ROUTES: Record<string, string> = {
+  // Polish canonical slugs
   'konstrukcje-stalowe': 'konstrukcje-stalowe',
   'remonty-modernizacje-instalacji-przemyslowych': 'remonty-modernizacje-instalacji-przemyslowych',
   'aparaty-cisnieniowe': 'aparaty-cisnieniowe',
   'montaz-urzadzen-przemyslowych': 'montaz-urzadzen-przemyslowych',
+  // Multilingual alias routes
+  'pressure-vessels': 'aparaty-cisnieniowe',
+  'druckapparate': 'aparaty-cisnieniowe',
+  'aparaty-vysokoho-tysku': 'aparaty-cisnieniowe',
+  'structural-steel': 'konstrukcje-stalowe',
+  'stahlbau': 'konstrukcje-stalowe',
+  'metalevi-konstruktsiyi': 'konstrukcje-stalowe',
+  'industrial-equipment-assembly': 'montaz-urzadzen-przemyslowych',
+  'industriemontage': 'montaz-urzadzen-przemyslowych',
+  'montazh-promyslovoho-obladnannya': 'montaz-urzadzen-przemyslowych',
+  'overhaul-and-modernization': 'remonty-modernizacje-instalacji-przemyslowych',
+  'instandsetzung-und-modernisierung': 'remonty-modernizacje-instalacji-przemyslowych',
+  'remont-ta-modernizatsiya': 'remonty-modernizacje-instalacji-przemyslowych',
 };
 
 // 2. Verified Legal Document Direct Routes (RODO & Sygnaliści ONLY)
